@@ -1,50 +1,53 @@
 <template>
-  <main class="main">
-    <h1>Log in</h1>
+  <div class="main-wrapper">
+    <main class="main">
+      <h1>Log in</h1>
 
-    <form class="" @submit.prevent="signIn">
-      <div class="email-form form">
-        <label class="" for="">Email</label>
-        <input
-          class=""
-          type="email"
-          placeholder="email@example.cat"
-          v-model="email"
-          id="email"
-        />
-      </div>
-      <div class="password-form form">
-        <label class="" for="">Password</label>
-
-        <div class="">
+      <form class="form-wrapper" @submit.prevent="signIn">
+        <div>Continue with Google</div>
+        <div>Continue with Discord</div>
+        <div class="email-form form">
+          <label class="" for="">Email</label>
           <input
             class=""
-            :type="passwordFieldType"
-            onpaste="return false"
-            placeholder="************"
-            v-model="password"
-            id="password"
+            type="email"
+            placeholder="Enter your email adress..."
+            v-model="email"
+            id="email"
           />
-          <p v-if="errorMsg" class="">
-            {{ errorMsg }}
-          </p>
-          <span class="">
-            <EyeIcon
-              :class="[passwordFieldIcon]"
-              @click.prevent="hidePassword = !hidePassword"
-            />
-          </span>
         </div>
-      </div>
+        <div class="password-form form">
+          <label class="" for="">Password</label>
 
-      <button class="login-button" type="submit">Log in with email</button>
-      <p class="">
-        <span class="login-button-text">Don’t have an account? </span>
+          <div class="">
+            <input
+              class=""
+              :type="passwordFieldType"
+              onpaste="return false"
+              placeholder="************"
+              v-model="password"
+              id="password"
+            />
 
-        <PersonalRouter :route="route" :buttonText="buttonText" />
-      </p>
-    </form>
-  </main>
+            <span class="">
+              <EyeIcon
+                :class="[passwordFieldIcon]"
+                @click.prevent="hidePassword = !hidePassword"
+              />
+            </span>
+            <p v-if="errorMsg" class="">
+              {{ errorMsg }}
+            </p>
+          </div>
+        </div>
+
+        <button class="login-button" type="submit">Log in with email</button>
+        <p class="change-login-text">
+          <PersonalRouter :route="route" :buttonText="buttonText" />
+        </p>
+      </form>
+    </main>
+  </div>
 </template>
 
 <script setup>
@@ -57,7 +60,7 @@ import { storeToRefs } from "pinia";
 
 // Route Variables
 const route = "/auth/sign-up";
-const buttonText = "Test the Sign Up Route";
+const buttonText = "Create an account";
 
 // Input Fields
 const email = ref("");
@@ -108,14 +111,12 @@ const signIn = async () => {
   color: black;
   margin-bottom: 1rem;
 }
-.button {
-  background-color: #8a958b; /* Green */
-  border: none;
-  color: white;
-  padding: 10px 10px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
+
+.login-button {
+  background-color: #598392;
+  color: #eff6e0;
+  border-style: none;
+  border-radius: 7px;
+  padding: 10px;
 }
 </style>

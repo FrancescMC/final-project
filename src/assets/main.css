@@ -2,9 +2,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap");
 * {
   font-family: "Manrope", sans-serif;
-  background-color: #eff6e0;
   color: #124559;
 }
+
 /* #app {
   max-width: 1280px;
   margin: 0 auto;
@@ -12,21 +12,44 @@
 
   font-weight: normal;
 } */
+html {
+  background-color: #eff6e0;
+}
 h1 {
   font-size: 34px;
   font-weight: 800;
   text-align: center;
-  margin-top: 20vh;
   margin-bottom: 24px;
   color: #01161e;
 }
-a,
-.green {
+a {
   text-decoration: none;
   transition: 0.4s;
 }
+.main-wrapper {
+  display: flex;
+  justify-content: center;
+}
+.main {
+  padding: 5vh 0;
+  margin-top: 20vh;
+  height: 460px;
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #aec3b0;
+  border-radius: 5%;
+}
+.form-wrapper {
+  max-width: 320px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-@media (hover: hover) {
+/* @media (hover: hover) {
   a:hover {
     background-color: hsla(160, 100%, 37%, 0.2);
   }
@@ -43,4 +66,4 @@ a,
     grid-template-columns: 1fr 1fr;
     padding: 0 2rem;
   }
-}
+} */
