@@ -118,5 +118,6 @@ const signIn = async () => {
   border-style: none;
   border-radius: 7px;
   padding: 10px;
+  width: 161px;
 }
 </style>

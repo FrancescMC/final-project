@@ -1,5 +1,6 @@
 <template>
   <div>hello</div>
+  <PersonalRouter :route="route" :buttonText="buttonText" />
 </template>
 
 <script setup></script>

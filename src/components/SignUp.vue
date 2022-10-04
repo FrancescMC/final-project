@@ -34,7 +34,7 @@
             id="confirmPassword"
           />
         </div>
-        <button class="" type="submit">Sign Up</button>
+        <button class="login-button" type="submit">Sign Up</button>
         <p class="">
           <span class="">Have an account? </span>
         </p>
