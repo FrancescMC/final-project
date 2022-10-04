@@ -1,50 +1,50 @@
 <template>
-  <div>Sign In</div>
-  <PersonalRouter :route="route" :buttonText="buttonText" />
-  <p>Time to build up the Final Project!</p>
-  <p class="wu-text">Wu Tang Forever</p>
-  <p v-if="errorMsg" class="">
-    {{ errorMsg }}
-  </p>
-  <form @submit.prevent="signIn">
-    <div class="">
-      <label class="" for="">Email</label>
-      <input
-        class=""
-        type="email"
-        placeholder="dave@wuTangfinancial.com"
-        v-model="email"
-        id="email"
-      />
-    </div>
-    <div class="mb-4">
-      <label class="" for="">Password</label>
+  <main class="main">
+    <h1>Log in</h1>
 
-      <div class="">
+    <form class="" @submit.prevent="signIn">
+      <div class="email-form form">
+        <label class="" for="">Email</label>
         <input
           class=""
-          :type="passwordFieldType"
-          onpaste="return false"
-          placeholder="************"
-          v-model="password"
-          id="password"
+          type="email"
+          placeholder="email@example.cat"
+          v-model="email"
+          id="email"
         />
-        <span class="">
-          <EyeIcon
-            :class="[passwordFieldIcon]"
-            @click.prevent="hidePassword = !hidePassword"
-          />
-        </span>
       </div>
-    </div>
+      <div class="password-form form">
+        <label class="" for="">Password</label>
 
-    <button class="" type="submit">Sign In</button>
-    <p class="">
-      <span class="">Don’t have an account? </span>
+        <div class="">
+          <input
+            class=""
+            :type="passwordFieldType"
+            onpaste="return false"
+            placeholder="************"
+            v-model="password"
+            id="password"
+          />
+          <p v-if="errorMsg" class="">
+            {{ errorMsg }}
+          </p>
+          <span class="">
+            <EyeIcon
+              :class="[passwordFieldIcon]"
+              @click.prevent="hidePassword = !hidePassword"
+            />
+          </span>
+        </div>
+      </div>
 
-      <PersonalRouter :route="route" :buttonText="buttonText" />
-    </p>
-  </form>
+      <button class="login-button" type="submit">Log in with email</button>
+      <p class="">
+        <span class="login-button-text">Don’t have an account? </span>
+
+        <PersonalRouter :route="route" :buttonText="buttonText" />
+      </p>
+    </form>
+  </main>
 </template>
 
 <script setup>
@@ -102,13 +102,14 @@ const signIn = async () => {
   display: flex;
   flex-direction: column;
   margin: 1rem 0;
+  font-size: small;
 }
 .input {
   color: black;
   margin-bottom: 1rem;
 }
 .button {
-  background-color: #4caf50; /* Green */
+  background-color: #8a958b; /* Green */
   border: none;
   color: white;
   padding: 10px 10px;
