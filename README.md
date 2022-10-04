@@ -51,7 +51,8 @@ npm run build
         Han quedado hechos el SignIn y el SignUp en modo claro de mobile.
     # Miércoles 5/10 (day 2):
 
-        Quiero que ya se puedan crear toDos
+        Crear parte tablet y desktop.
+        Que se puedan crear todos
 
 ### Links:
 
