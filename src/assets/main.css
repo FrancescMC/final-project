@@ -23,11 +23,7 @@ h1 {
   margin-bottom: 24px;
   color: #01161e;
 }
-@media (min-width: 851px) {
-  h1 {
-    font-size: 50px;
-  }
-}
+
 a {
   text-decoration: none;
   transition: 0.4s;
@@ -47,7 +43,54 @@ a {
   background-color: #aec3b0;
   border-radius: 5%;
 }
+.card-wrapper {
+  margin: 30px 0;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+}
+.card {
+  max-width: 320px;
+  background-color: #aec3b0;
+  border-radius: 7px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 10px;
+}
 
+.card-text {
+  color: #01161e;
+}
+.description {
+  border-radius: 7px;
+  border: 1px;
+  border-color: #eff6e0;
+  border-style: solid;
+  padding: 10px;
+}
+.card-buttons {
+  display: flex;
+}
+.card-button {
+  background-color: #598392;
+  color: #eff6e0;
+  border-style: none;
+  border-radius: 7px;
+  padding: 15px;
+  margin: 3px;
+  width: 80px;
+}
+@media (min-width: 851px) {
+  h1 {
+    font-size: 50px;
+  }
+  .card-wrapper {
+    flex-direction: row-reverse;
+  }
+}
 /* .input {
   color: black;
   margin-bottom: 1rem;

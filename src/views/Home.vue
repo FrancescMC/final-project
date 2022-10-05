@@ -1,5 +1,7 @@
 <template>
-  <TaskItem v-for="task in taskStore.tasks" :task="task" :key="task.id" />
+  <div class="card-wrapper">
+    <TaskItem v-for="task in taskStore.tasks" :task="task" :key="task.id" />
+  </div>
 </template>
 
 <script setup>
@@ -10,7 +12,6 @@ import { useTaskStore } from "../stores/task";
 // nos definimos una variable para simplificar el uso de la tienda, que es lo equivale a la tienda como tal mediante un método para poder usar lo que contiene dentro.
 const taskStore = useTaskStore();
 onMounted(() => {
-  console.log(taskStore.fetchTasks());
   taskStore.fetchTasks();
 });
 </script>

@@ -1,8 +1,13 @@
 <template>
-  <div>Task Item Component</div>
-  <div>
-    <h1>{{ task.title }}</h1>
-    <h2>{{ task.description }}</h2>
+  <div class="card-wrapper">
+    <div class="card">
+      <h3 class="card-text card-title">{{ task.title }}</h3>
+      <p class="card-text description">{{ task.description }}</p>
+      <div class="card-buttons">
+        <button class="card-button">DONE</button>
+        <button class="card-button">DELETE</button>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -12,9 +17,6 @@ import { ref } from "vue";
 //   ENTER-EMITS-HERE
 // ])
 
-const title = ref("");
-
-const description = ref("");
 const props = defineProps(["task"]);
 </script>
 
@@ -32,3 +34,5 @@ const props = defineProps(["task"]);
 8. Function to emmit a custom event emit() that takes 2 parameters a name for the custom event and the value that will be send via the prop to the parent component. This function can control the removal of  the task on the homeview.
 -->
 <!--  -->
+
+<!-- f25b6b5a-3e25-4d2c-850f-85f8cfef8365 -->
