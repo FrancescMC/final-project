@@ -2,7 +2,6 @@
   <div class="main-wrapper">
     <main class="main">
       <h1>Log in</h1>
-
       <form class="form-wrapper" @submit.prevent="signIn">
         <div>Continue with Google</div>
         <div>Continue with Discord</div>
@@ -57,6 +56,12 @@ import { supabase } from "../supabase";
 import { useRouter } from "vue-router";
 import { useUserStore } from "../stores/user";
 import { storeToRefs } from "pinia";
+import DarkMode from "./DarkMode.vue";
+
+const light = ref(true);
+const toggleDark = () => {
+  light.value = !light.value;
+};
 
 // Route Variables
 const route = "/auth/sign-up";
@@ -97,21 +102,6 @@ const signIn = async () => {
 </script>
 
 <style>
-.wu-text {
-  color: black;
-}
-
-.form {
-  display: flex;
-  flex-direction: column;
-  margin: 1rem 0;
-  font-size: small;
-}
-.input {
-  color: black;
-  margin-bottom: 1rem;
-}
-
 .login-button {
   background-color: #598392;
   color: #eff6e0;
@@ -119,5 +109,18 @@ const signIn = async () => {
   border-radius: 7px;
   padding: 10px;
   width: 161px;
+}
+.form-wrapper {
+  max-width: 320px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 0;
+  font-size: small;
 }
 </style>

@@ -1,9 +1,12 @@
 <template>
   <div>hello</div>
-  <PersonalRouter :route="route" :buttonText="buttonText" />
+  <Darkmode />
 </template>
 
-<script setup></script>
+<script setup>
+import { ref } from "vue";
+import DarkMode from "../components/DarkMode.vue";
+</script>
 
 <style></style>
 

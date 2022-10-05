@@ -2,7 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap");
 * {
   font-family: "Manrope", sans-serif;
-  color: #124559;
+  color: #598392;
 }
 
 /* #app {
@@ -15,12 +15,18 @@
 html {
   background-color: #eff6e0;
 }
+
 h1 {
   font-size: 34px;
   font-weight: 800;
   text-align: center;
   margin-bottom: 24px;
   color: #01161e;
+}
+@media (min-width: 851px) {
+  h1 {
+    font-size: 50px;
+  }
 }
 a {
   text-decoration: none;
@@ -41,13 +47,11 @@ a {
   background-color: #aec3b0;
   border-radius: 5%;
 }
-.form-wrapper {
-  max-width: 320px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+
+/* .input {
+  color: black;
+  margin-bottom: 1rem;
+} */
 
 /* @media (hover: hover) {
   a:hover {

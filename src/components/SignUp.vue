@@ -36,7 +36,7 @@
         </div>
         <button class="login-button" type="submit">Sign Up</button>
         <p class="">
-          <span class="">Have an account? </span>
+          <PersonalRouter :route="route" :buttonText="buttonText" />
         </p>
       </form>
     </main>
@@ -50,7 +50,7 @@ import PersonalRouter from "./PersonalRouter.vue";
 import { useUserStore } from "../stores/user";
 // Route Variables
 const route = "/auth/login";
-const buttonText = "Test the Sign In Route";
+const buttonText = "Have an account?";
 // Input Fields
 const email = ref(null);
 const password = ref(null);
