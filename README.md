@@ -53,6 +53,12 @@ npm run build
 
         Crear parte tablet y desktop.
         Que se puedan crear todos
+        Resultado:
+        Puedo ver las tasks en pantalla y les he añadido un poco de estilo.
+    #Jueves 6/10 (day 3):
+        Poder crear TO-DOs
+        Acabar la parte estética de las cartas.
+        Empezar un navbar donde aparezca si estamos logueados, posibilidad de desloguearse y login
 
 ### Links:
 
