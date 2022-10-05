@@ -1,5 +1,21 @@
 <template>
-  <div>New Task Component</div>
+  <div>
+    <h2>Create task</h2>
+    <br />
+    <input
+      v-model="taskTitle"
+      type="text"
+      id="newTaskTitke"
+      placeholder="Title"
+    />
+    <br /><br />
+    <input
+      v-model="taskDesc"
+      type="text"
+      id="newTaskDesc"
+      placeholder="Description"
+    />
+  </div>
 </template>
 
 <script setup>

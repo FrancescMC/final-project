@@ -1,11 +1,18 @@
 <template>
-  <div>hello</div>
-  <Darkmode />
+  <TaskItem v-for="task in taskStore.tasks" :task="task" :key="task.id" />
 </template>
 
 <script setup>
-import { ref } from "vue";
-import DarkMode from "../components/DarkMode.vue";
+import { ref, onMounted } from "vue";
+import TaskItem from "../components/TaskItem.vue";
+import { useTaskStore } from "../stores/task";
+
+// nos definimos una variable para simplificar el uso de la tienda, que es lo equivale a la tienda como tal mediante un método para poder usar lo que contiene dentro.
+const taskStore = useTaskStore();
+onMounted(() => {
+  console.log(taskStore.fetchTasks());
+  taskStore.fetchTasks();
+});
 </script>
 
 <style></style>
