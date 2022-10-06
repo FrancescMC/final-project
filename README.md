@@ -41,7 +41,7 @@ npm run build
 
 ### Planning
 
-    ### Martes 4/10 (day 1):
+    Martes 4/10 (day 1):
 
         La idea sería decidir el diseño hoy. Voy a intentar ponerle estilo a las páginas sign in y signup para  poder hacerme una idea de como quede todo en general.
         He decidido más o menos como va a ser la web estéticamente.
@@ -49,15 +49,32 @@ npm run build
         Empezaré haciendo el modo claro, ya que puede tener más colores que el oscuro.
         Empezaré por mobile.
         Han quedado hechos el SignIn y el SignUp en modo claro de mobile.
-    # Miércoles 5/10 (day 2):
+
+    Miércoles 5/10 (day 2):
         Crear parte tablet y desktop.
         Que se puedan crear todos
         Resultado:
         Puedo ver las tasks en pantalla y les he añadido un poco de estilo.
-    #Jueves 6/10 (day 3):
+
+    Jueves 6/10 (day 3):
         Poder crear TO-DOs
         Acabar la parte estética de las cartas.
         Empezar un navbar donde aparezca si estamos logueados, posibilidad de desloguearse y login
+
+        Resultado del día:
+        Los to-do se pueden crear, borrar y marcar como completados. Hay un navbar con un logout funcional y aparece el usuario logueado al lado.
+
+    Viernes 7/10 (day 4):
+        Poder modificar los TO-DOs
+        Añadir un poco más de estilo.
+
+    Backlog:
+        Poder modificar los TO-DOs
+        Poder borrar todos los TO-DOs al mismo tiempo
+        Poder ver solamente los TO-DOs pendientes
+        Poder ver solamente los TO-DOs completados
+        Crear un icono y usarlo en varios sitios
+        Que todo esté bonito
 
 ### Links:
 
