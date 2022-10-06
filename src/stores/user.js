@@ -31,6 +31,14 @@ export const useUserStore = defineStore("user", {
         console.log(this.user);
       }
     },
+    // plantilla funcion asíncrona async (function) functionName(){};
+    // signout function
+    async signOut() {
+      const { error } = await supabase.auth.signOut();
+      console.log(error);
+      if (error) throw error;
+    },
+
     persist: {
       enabled: true,
       strategies: [

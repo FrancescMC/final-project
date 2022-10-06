@@ -50,7 +50,6 @@ npm run build
         Empezaré por mobile.
         Han quedado hechos el SignIn y el SignUp en modo claro de mobile.
     # Miércoles 5/10 (day 2):
-
         Crear parte tablet y desktop.
         Que se puedan crear todos
         Resultado:

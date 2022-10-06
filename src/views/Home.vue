@@ -1,5 +1,8 @@
 <template>
-  <div class="card-wrapper">
+  <div class="nav-bar">
+    <Nav />
+  </div>
+  <div class="cards-wrapper">
     <TaskItem v-for="task in taskStore.tasks" :task="task" :key="task.id" />
   </div>
 </template>
@@ -8,6 +11,7 @@
 import { ref, onMounted } from "vue";
 import TaskItem from "../components/TaskItem.vue";
 import { useTaskStore } from "../stores/task";
+import Nav from "../components/Nav.vue";
 
 // nos definimos una variable para simplificar el uso de la tienda, que es lo equivale a la tienda como tal mediante un método para poder usar lo que contiene dentro.
 const taskStore = useTaskStore();
