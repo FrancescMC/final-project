@@ -3,9 +3,13 @@
     <div class="card">
       <h3 class="card-text card-title">{{ task.title }}</h3>
       <p class="card-text description">{{ task.description }}</p>
+      <p class="card-text description">
+        {{ task.is_complete ? "completed" : "not completed" }}
+      </p>
       <div class="card-buttons">
-        <button class="card-button">DONE</button>
-        <button class="card-button">DELETE</button>
+        <button class="card-button">EDIT</button>
+        <button @click="deleteTask" class="card-button">DELETE</button>
+        <button @click="completeTask" class="card-button">COMPLETE</button>
       </div>
     </div>
   </div>
@@ -13,11 +17,19 @@
 
 <script setup>
 import { ref } from "vue";
-// const emit = defineEmits([
-//   ENTER-EMITS-HERE
-// ])
-
+// definimos props
 const props = defineProps(["task"]);
+// defino los emits
+const emit = defineEmits(["deleteTaskChildren", "completeTaskChildren"]);
+// borrar tareas
+const deleteTask = () => {
+  emit("deleteTaskChildren", props.task.id);
+};
+
+// completar tareas
+const completeTask = () => {
+  emit("completeTaskChildren", props.task.id);
+};
 </script>
 
 <style></style>

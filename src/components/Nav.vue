@@ -1,5 +1,6 @@
 <template>
   <button @click="signOut" class="login-button">Sign Out</button>
+  <p>Welcome, {{ userName }}</p>
   <div v-if="errorMessageContainer">
     <p>{{ errorMessage }}</p>
   </div>
@@ -9,6 +10,7 @@
 import { useUserStore } from "../stores/user";
 import { useRouter } from "vue-router";
 import { ref } from "vue";
+let userName = ref(useUserStore().user.email);
 // Router to push user once SignOut is activated and will push user to the SignIn page.
 const redirect = useRouter();
 

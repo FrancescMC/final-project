@@ -1,24 +1,71 @@
 <template>
-  <div>
-    <h2>Create task</h2>
-    <br />
-    <input
-      v-model="taskTitle"
-      type="text"
-      id="newTaskTitke"
-      placeholder="Title"
-    />
-    <br /><br />
-    <input
-      v-model="taskDesc"
-      type="text"
-      id="newTaskDesc"
-      placeholder="Description"
-    />
+  <div class="card-wrapper">
+    <div class="card">
+      <input
+        v-model="taskTitle"
+        type="text"
+        id="newTaskTitle"
+        placeholder="Title"
+      />
+      <input
+        v-model="taskDescription"
+        type="text"
+        id="taskDescription"
+        placeholder="Description"
+      />
+      <p class="card-text description"></p>
+      <div class="card-buttons">
+        <button @click="createTask" class="card-button">Create</button>
+      </div>
+      <div>
+        <h3 v-if="errorBoolean">{{ emptyString }}</h3>
+      </div>
+    </div>
   </div>
 </template>
 
 <script setup>
+import { ref } from "vue";
+
+// define emit
+const emit = defineEmits(["createTaskChildren"]);
+// variables for the parts that will be introduced by the user
+const taskTitle = ref("");
+const taskDescription = ref("");
+// ??
+const errorBoolean = ref("");
+
+const emptyString = ref("");
+// function that we will call to introduce a new task
+// const createTask = () => {
+//   const error = taskTitle.value === "";
+//   try {
+//     emit("createTaskChildren", taskTitle.value, taskDescription.value);
+//     taskTitle.value = "";
+//     taskDescription.value = "";
+//   } catch (error) {
+//     console.log(error);
+//     errorBoolean.value = true;
+//     emptyString.value = "title is required.";
+//     setTimeout(() => {
+//       errorBoolean.value = false;
+//     }, 1000);
+//   }
+// };
+const createTask = () => {
+  if (taskTitle.value === "") {
+    errorBoolean.value = true;
+    emptyString.value = "title is required.";
+    setTimeout(() => {
+      errorBoolean.value = false;
+    }, 1000);
+  } else {
+    emit("createTaskChildren", taskTitle.value, taskDescription.value);
+    taskTitle.value = "";
+    taskDescription.value = "";
+  }
+};
+
 // constant to save a variable that define the custom event that will be emitted to the homeView
 
 // constant to save a variable that holds the value of the title input field of the new task

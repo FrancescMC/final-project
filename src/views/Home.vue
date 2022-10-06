@@ -2,8 +2,18 @@
   <div class="nav-bar">
     <Nav />
   </div>
+  <div>
+    <h3>create a new card</h3>
+    <NewTask @createTaskChildren="createTaskFather" />
+  </div>
   <div class="cards-wrapper">
-    <TaskItem v-for="task in taskStore.tasks" :task="task" :key="task.id" />
+    <TaskItem
+      @deleteTaskChildren="deleteTaskFather"
+      @completeTaskChildren="completeTaskFather"
+      v-for="task in taskStore.tasks"
+      :task="task"
+      :key="task.id"
+    />
   </div>
 </template>
 
@@ -12,12 +22,27 @@ import { ref, onMounted } from "vue";
 import TaskItem from "../components/TaskItem.vue";
 import { useTaskStore } from "../stores/task";
 import Nav from "../components/Nav.vue";
+import NewTask from "../components/NewTask.vue";
 
-// nos definimos una variable para simplificar el uso de la tienda, que es lo equivale a la tienda como tal mediante un método para poder usar lo que contiene dentro.
+// nos definimos una variable para simplificar el uso de la store, que es lo equivale a la store como tal mediante un método para poder usar lo que contiene dentro.
 const taskStore = useTaskStore();
 onMounted(() => {
   taskStore.fetchTasks();
 });
+
+// declarando la función asíncrona que se encargará de borrar una tarea en supabase
+const deleteTaskFather = async (taskId) => {
+  await taskStore.deleteTask(taskId);
+};
+// declarando la función asíncrona que se encargará de marcar como completa una tarea en supabase
+const completeTaskFather = async (taskId) => {
+  await taskStore.completeTask(taskId);
+};
+// declarando la función asíncrona que se encargará de enviar una tarea a supabase
+
+const createTaskFather = async (title, description) => {
+  await taskStore.addTask(title, description);
+};
 </script>
 
 <style></style>
