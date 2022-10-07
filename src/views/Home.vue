@@ -2,7 +2,7 @@
   <div class="nav-bar">
     <Nav />
   </div>
-  <div>
+  <div class="new-task-wrapper">
     <h3>create a new card</h3>
     <NewTask @createTaskChildren="createTaskFather" />
   </div>

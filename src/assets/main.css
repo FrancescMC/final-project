@@ -36,6 +36,12 @@ a {
   background-color: #aec3b0;
   display: flex;
   flex-direction: row-reverse;
+  height: 40px;
+}
+.new-task-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .main-wrapper {
   display: flex;
