@@ -1,13 +1,14 @@
 <template>
   <div class="card-wrapper">
     <div class="card">
+      <p>{{ task.is_complete ? "✔" : "❌" }}</p>
       <input
         v-model="taskTitle"
         type="text"
         id="newTaskTitle"
         :placeholder="props.task.title"
       />
-      <p>{{ task.is_complete ? "✔" : "❌" }}</p>
+
       <!-- <h3 class="card-text card-title">
         {{ task.title }} {{ task.is_complete ? "✔" : "❌" }}
       </h3> -->
@@ -20,9 +21,27 @@
       <!-- <p class="card-text description">{{ task.description }}</p> -->
 
       <div class="card-buttons">
-        <button @click="updateTask" class="card-button">EDIT</button>
-        <button @click="deleteTask" class="card-button">DELETE</button>
-        <button @click="toggleTask" class="card-button">🎈</button>
+        <button @click="updateTask" class="card-button">
+          <img
+            class="logo-img"
+            src="../assets/icons/edit.svg"
+            alt="trashcan logo"
+          />
+        </button>
+        <button @click="deleteTask" class="card-button">
+          <img
+            class="logo-img"
+            src="../assets/icons/trashcan.svg"
+            alt="trashcan logo"
+          />
+        </button>
+        <button @click="toggleTask" class="card-button">
+          <img
+            class="logo-img"
+            src="../assets/icons/check.svg"
+            alt="trashcan logo"
+          />
+        </button>
       </div>
       <!-- <button @click="deleteAllTask" class="card-button">DELETEALL</button> -->
     </div>
@@ -78,7 +97,11 @@ const toggleTask = () => {
 };
 </script>
 
-<style></style>
+<style>
+.logo-img {
+  width: 100%;
+}
+</style>
 
 <!-- 
 **Hints**

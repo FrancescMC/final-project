@@ -1,6 +1,7 @@
 <template>
-  <button @click="signOut" class="login-button">Sign Out</button>
-  <p>Welcome, {{ userName }}</p>
+  <button class="logout-button dontHide">Welcome, {{ userName }}</button>
+  <button @click="signOut" class="logout-button hide">Log Out</button>
+  <!-- <p>Welcome, {{ userName }}</p> -->
   <div v-if="errorMessageContainer">
     <p>{{ errorMessage }}</p>
   </div>
@@ -43,4 +44,22 @@ async function signOut() {
 // constant that saves the user email and cleans out the @client from the user
 </script>
 
-<style></style>
+<style>
+.logout-button {
+  background-color: #aec3b0;
+  color: #124559;
+  border-style: none;
+  margin-right: 20px;
+}
+
+.hide {
+  display: none;
+  text-align: center;
+}
+.dontHide:hover {
+  display: none;
+}
+.dontHide:hover + .hide {
+  display: block;
+}
+</style>

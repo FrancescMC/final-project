@@ -73,9 +73,13 @@ npm run build
     Lunes 10/10 (day5)
         Poder modificar y borrar todos los TO-DOs
         Que los cambios se hagan si tener que refrescar la página.
+        Resultado: Se pueden modificar TO-DOs y marcarlos y desmarcarlos como completos con el mismo botón. He añadido estilo.
+
+    Martes 11/10 (day6)
+        Poder borrar todos los TO-DOs al mismo tiempo.
+        Añadir más estilo.
 
     Backlog:
-        Poder modificar los TO-DOs
         Poder borrar todos los TO-DOs al mismo tiempo
         Poder ver solamente los TO-DOs pendientes
         Poder ver solamente los TO-DOs completados

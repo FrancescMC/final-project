@@ -2,7 +2,6 @@
   <div class="nav-bar">
     <Nav />
   </div>
-  <DeleteAll @deleteAllTaskChildren="deleteAllTaskFather" />
   <div class="new-task-wrapper">
     <h3>create a new card</h3>
     <NewTask @createTaskChildren="createTaskFather" />

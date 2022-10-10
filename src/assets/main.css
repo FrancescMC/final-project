@@ -36,6 +36,7 @@ a {
   background-color: #aec3b0;
   display: flex;
   flex-direction: row-reverse;
+  justify-content: space-between;
   height: 40px;
 }
 .new-task-wrapper {
@@ -90,14 +91,17 @@ a {
   display: flex;
 }
 .card-button {
-  background-color: #598392;
+  background-color: #aec3b0;
   color: #eff6e0;
   border-style: none;
   border-radius: 7px;
-  padding: 15px;
-  margin: 3px;
-  width: 80px;
+  width: 50px;
 }
+input {
+  background-color: #aec3b0;
+  border-style: none none groove none;
+}
+
 @media (min-width: 851px) {
   h1 {
     font-size: 50px;
