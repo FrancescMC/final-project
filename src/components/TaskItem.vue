@@ -22,8 +22,9 @@
       <div class="card-buttons">
         <button @click="updateTask" class="card-button">EDIT</button>
         <button @click="deleteTask" class="card-button">DELETE</button>
-        <button @click="toggleTask" class="card-button">🐸</button>
+        <button @click="toggleTask" class="card-button">🎈</button>
       </div>
+      <!-- <button @click="deleteAllTask" class="card-button">DELETEALL</button> -->
     </div>
   </div>
 </template>
@@ -40,6 +41,7 @@ const emit = defineEmits([
   "completeTaskChildren",
   "unCompleteTaskChildren",
   "updateTaskChildren",
+  "deleteAllTaskChildren",
 ]);
 // actualizar tareas
 const updateTask = () => {
@@ -49,21 +51,26 @@ const updateTask = () => {
     taskTitle.value,
     taskDescription.value
   );
-  // borrar tareas
-  const deleteTask = () => {
-    emit("deleteTaskChildren", props.task.id);
-  };
-
-  // completar tareas
-  const completeTask = () => {
-    emit("completeTaskChildren", props.task.id);
-  };
-  // marcar tareas como incompletas
-  const unCompleteTask = () => {
-    emit("unCompleteTaskChildren", props.task.id);
-  };
 };
-// función para cambiar de completo a incompleto
+// borrar tareas
+const deleteTask = () => {
+  emit("deleteTaskChildren", props.task.id);
+};
+// borrar todas las tareas
+// const deleteAllTask = () => {
+//   emit("deleteAllTaskChildren", props.task.user_id);
+// };
+// completar tareas
+const completeTask = () => {
+  emit("completeTaskChildren", props.task.id);
+};
+
+// marcar tareas como incompletas
+const unCompleteTask = () => {
+  emit("unCompleteTaskChildren", props.task.id);
+};
+
+// función para cambiar de completo a incompleto y viceversa
 const toggleTask = () => {
   const toggledTask = ref(!props.task.is_complete);
   toggledTask.value ? completeTask() : unCompleteTask();

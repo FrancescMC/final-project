@@ -13,7 +13,6 @@
         id="taskDescription"
         placeholder="Description"
       />
-      <p class="card-text description"></p>
       <div class="card-buttons">
         <button @click="createTask" class="card-button">Create</button>
       </div>
@@ -26,9 +25,14 @@
 
 <script setup>
 import { ref } from "vue";
-
+// definimos props
+const props = defineProps(["task"]);
 // define emit
-const emit = defineEmits(["createTaskChildren"]);
+const emit = defineEmits(["createTaskChildren", "deleteAllTaskChildren"]);
+// borrar todas las tareas
+// const deleteAllTask = () => {
+//   emit("deleteAllTaskChildren", props.task.user_id);
+// };
 // variables for the parts that will be introduced by the user
 const taskTitle = ref("");
 const taskDescription = ref("");
