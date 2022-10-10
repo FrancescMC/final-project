@@ -67,6 +67,12 @@ npm run build
     Viernes 7/10 (day 4):
         Poder modificar los TO-DOs
         Añadir un poco más de estilo.
+        Resultado:
+        Añadí más estilo y decidí más temas estéticos
+
+    Lunes 10/10 (day5)
+        Poder modificar y borrar todos los TO-DOs
+        Que los cambios se hagan si tener que refrescar la página.
 
     Backlog:
         Poder modificar los TO-DOs
