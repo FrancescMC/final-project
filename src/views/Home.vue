@@ -10,6 +10,8 @@
     <TaskItem
       @deleteTaskChildren="deleteTaskFather"
       @completeTaskChildren="completeTaskFather"
+      @unCompleteTaskChildren="unCompleteTaskFather"
+      @updateTaskChildren="updateTaskFather"
       v-for="task in taskStore.tasks"
       :task="task"
       :key="task.id"
@@ -33,15 +35,28 @@ onMounted(() => {
 // declarando la función asíncrona que se encargará de borrar una tarea en supabase
 const deleteTaskFather = async (taskId) => {
   await taskStore.deleteTask(taskId);
+  taskStore.fetchTasks();
 };
 // declarando la función asíncrona que se encargará de marcar como completa una tarea en supabase
 const completeTaskFather = async (taskId) => {
   await taskStore.completeTask(taskId);
+  taskStore.fetchTasks();
 };
+const unCompleteTaskFather = async (taskId) => {
+  await taskStore.unCompleteTask(taskId);
+  taskStore.fetchTasks();
+};
+
 // declarando la función asíncrona que se encargará de enviar una tarea a supabase
 
 const createTaskFather = async (title, description) => {
   await taskStore.addTask(title, description);
+  taskStore.fetchTasks();
+};
+// declarando la función asíncrona que actualiza la tarea.
+const updateTaskFather = async (id, title, description) => {
+  await taskStore.updateTask(id, title, description);
+  taskStore.fetchTasks();
 };
 </script>
 

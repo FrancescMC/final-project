@@ -1,15 +1,28 @@
 <template>
   <div class="card-wrapper">
     <div class="card">
-      <h3 class="card-text card-title">{{ task.title }}</h3>
-      <p class="card-text description">{{ task.description }}</p>
-      <p class="card-text description">
-        {{ task.is_complete ? "completed" : "not completed" }}
-      </p>
+      <input
+        v-model="taskTitle"
+        type="text"
+        id="newTaskTitle"
+        :placeholder="props.task.title"
+      />
+      <p>{{ task.is_complete ? "✔" : "❌" }}</p>
+      <!-- <h3 class="card-text card-title">
+        {{ task.title }} {{ task.is_complete ? "✔" : "❌" }}
+      </h3> -->
+      <input
+        v-model="taskDescription"
+        type="text"
+        id="taskDescription"
+        :placeholder="props.task.description"
+      />
+      <!-- <p class="card-text description">{{ task.description }}</p> -->
+
       <div class="card-buttons">
-        <button class="card-button">EDIT</button>
+        <button @click="updateTask" class="card-button">EDIT</button>
         <button @click="deleteTask" class="card-button">DELETE</button>
-        <button @click="completeTask" class="card-button">COMPLETE</button>
+        <button @click="toggleTask" class="card-button">🐸</button>
       </div>
     </div>
   </div>
@@ -17,18 +30,44 @@
 
 <script setup>
 import { ref } from "vue";
+const taskTitle = ref(props.task.title);
+const taskDescription = ref(props.task.description);
 // definimos props
 const props = defineProps(["task"]);
 // defino los emits
-const emit = defineEmits(["deleteTaskChildren", "completeTaskChildren"]);
-// borrar tareas
-const deleteTask = () => {
-  emit("deleteTaskChildren", props.task.id);
-};
+const emit = defineEmits([
+  "deleteTaskChildren",
+  "completeTaskChildren",
+  "unCompleteTaskChildren",
+  "updateTaskChildren",
+]);
+// actualizar tareas
+const updateTask = () => {
+  emit(
+    "updateTaskChildren",
+    props.task.id,
+    taskTitle.value,
+    taskDescription.value
+  );
+  // borrar tareas
+  const deleteTask = () => {
+    emit("deleteTaskChildren", props.task.id);
+  };
 
-// completar tareas
-const completeTask = () => {
-  emit("completeTaskChildren", props.task.id);
+  // completar tareas
+  const completeTask = () => {
+    emit("completeTaskChildren", props.task.id);
+  };
+  // marcar tareas como incompletas
+  const unCompleteTask = () => {
+    emit("unCompleteTaskChildren", props.task.id);
+  };
+};
+// función para cambiar de completo a incompleto
+const toggleTask = () => {
+  const toggledTask = ref(!props.task.is_complete);
+  toggledTask.value ? completeTask() : unCompleteTask();
+  console.log(toggledTask.value);
 };
 </script>
 

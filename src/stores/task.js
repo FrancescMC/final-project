@@ -27,10 +27,25 @@ export const useTaskStore = defineStore("tasks", {
         },
       ]);
     },
+    // Función para modificar tareas
+    async updateTask(taskId, title, description) {
+      const { data, error } = await supabase
+        .from("tasks")
+        .update({ title: title, description: description })
+        .match({ id: taskId });
+    },
+    // Función para completar tareas
     async completeTask(taskId) {
       const { data, error } = await supabase
         .from("tasks")
         .update({ is_complete: true })
+        .match({ id: taskId });
+    },
+    // Función para descompletar tareas
+    async unCompleteTask(taskId) {
+      const { data, error } = await supabase
+        .from("tasks")
+        .update({ is_complete: false })
         .match({ id: taskId });
     },
 
