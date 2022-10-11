@@ -2,13 +2,20 @@
   <div class="nav-bar">
     <Nav />
   </div>
-  <DeleteAll @deleteAllTaskChildren="deleteAllTaskFather" />
+  <Button @buttonActivation="deleteAllTaskFather" />
   <div class="new-task-wrapper">
     <h3>create a new card</h3>
     <NewTask @createTaskChildren="createTaskFather" />
-    <button @click="showComplete">showComplete</button>
+    <div class="filter-button-wrapper">
+      <button class="filter-button" @click="showAll">show all</button>
+      <button class="filter-button" @click="showComplete">
+        show completed
+      </button>
+      <button class="filter-button" @click="showUnComplete">
+        show uncompleted
+      </button>
+    </div>
   </div>
-  <div><Filters @showCompleteTaskChildren="showCompleteTaskFather" /></div>
   <div class="cards-wrapper">
     <TaskItem
       @deleteTaskChildren="deleteTaskFather"
@@ -28,7 +35,7 @@ import TaskItem from "../components/TaskItem.vue";
 import { useTaskStore } from "../stores/task";
 import Nav from "../components/Nav.vue";
 import NewTask from "../components/NewTask.vue";
-import DeleteAll from "../components/DeleteAll.vue";
+import Button from "../components/Button.vue";
 import Filters from "../components/Filters.vue";
 
 // nos definimos una variable para simplificar el uso de la store, que es lo equivale a la store como tal mediante un método para poder usar lo que contiene dentro.
@@ -45,31 +52,35 @@ async function getTasks() {
   tasksArray.value = await taskStore.fetchTasks();
 }
 
+// funciones de filtrado
+// mostrar todas las tareas
+async function showAll() {
+  getTasks();
+}
+// mostrar las tareas completas
 async function showComplete() {
-  console.log("hola");
-  console.log(tasksArray);
+  await getTasks();
   tasksArray.value = tasksArray.value.filter(
     (task) => task.is_complete === true
   );
 }
-
-// filters
-// showNotCompleted() {
-//       this.componentToDos = this.toDos;
-//       this.componentToDos = this.componentToDos.filter(
-//         (toDo: any) => toDo.completed !== true
-//       );
-// }
+// mostrar las tareas incompletas
+async function showUnComplete() {
+  await getTasks();
+  tasksArray.value = tasksArray.value.filter(
+    (task) => task.is_complete === false
+  );
+}
 
 // declarando la función asíncrona que se encargará de borrar una tarea en supabase
 const deleteTaskFather = async (taskId) => {
   await taskStore.deleteTask(taskId);
-  taskStore.fetchTasks();
+  getTasks();
 };
 // declarando la función asíncrona que se encargará de borrar todas las tareas a la vez
 const deleteAllTaskFather = async () => {
   await taskStore.deleteAllTask();
-  taskStore.fetchTasks();
+  getTasks();
 };
 // declarando la función asíncrona que se encargará de marcar como completa una tarea en supabase
 const completeTaskFather = async (taskId, bool) => {
@@ -81,25 +92,29 @@ const completeTaskFather = async (taskId, bool) => {
 
 const createTaskFather = async (title, description) => {
   await taskStore.addTask(title, description);
-  taskStore.fetchTasks();
+  getTasks();
 };
 // declarando la función asíncrona que actualiza la tarea.
 const updateTaskFather = async (id, title, description) => {
   await taskStore.updateTask(id, title, description);
-  taskStore.fetchTasks();
+  getTasks();
 };
-
-// funciones de filtrado
 
 // mostrar los completados
-const showCompleteTaskFather = async (is_complete) => {
-  await taskStore.showComplete(is_complete);
-};
+// const showCompleteTaskFather = async (is_complete) => {
+//   await taskStore.showComplete(is_complete);
+// };
 
 console.log(taskStore.fetchTasks());
 </script>
 
-<style></style>
+<style>
+.filter-button {
+  background-color: inherit;
+  border-style: none;
+  padding: 10px;
+}
+</style>
 
 <!-- 
 **Hints**
