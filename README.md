@@ -78,6 +78,10 @@ npm run build
     Martes 11/10 (day6)
         Poder borrar todos los TO-DOs al mismo tiempo.
         Añadir más estilo.
+        Resultado: Se pueden borrar todos los TO-DOs al mismo tiempo, se pueden agrupar los TO-DOs por todos, completos e incompletos y aparece el número de cada.
+
+    Miércoles 12/10 (day7)
+        Estilo
 
     Backlog:
         Poder borrar todos los TO-DOs al mismo tiempo

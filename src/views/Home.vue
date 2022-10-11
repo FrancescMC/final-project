@@ -7,12 +7,14 @@
     <h3>create a new card</h3>
     <NewTask @createTaskChildren="createTaskFather" />
     <div class="filter-button-wrapper">
-      <button class="filter-button" @click="showAll">show all</button>
+      <button class="filter-button" @click="showAll">
+        show all ({{ tasksData.length }})
+      </button>
       <button class="filter-button" @click="showComplete">
-        show completed
+        show completed ({{ tasksCompleted.length }})
       </button>
       <button class="filter-button" @click="showUnComplete">
-        show uncompleted
+        show uncompleted ({{ tasksUnCompleted.length }})
       </button>
     </div>
   </div>
@@ -36,20 +38,22 @@ import { useTaskStore } from "../stores/task";
 import Nav from "../components/Nav.vue";
 import NewTask from "../components/NewTask.vue";
 import Button from "../components/Button.vue";
-import Filters from "../components/Filters.vue";
 
 // nos definimos una variable para simplificar el uso de la store, que es lo equivale a la store como tal mediante un método para poder usar lo que contiene dentro.
 const taskStore = useTaskStore();
+const tasksCompleted = ref([]);
+const tasksUnCompleted = ref([]);
+const tasksArray = ref([]);
+const tasksData = ref([]);
 onMounted(async () => {
   getTasks();
 });
 
-const tasksArray = ref([]);
-const tasksData = ref([]);
-
 async function getTasks() {
   tasksData.value = await taskStore.fetchTasks();
   tasksArray.value = await taskStore.fetchTasks();
+  getTasksCompleted();
+  getTasksUnCompleted();
 }
 
 // funciones de filtrado
@@ -72,6 +76,9 @@ async function showUnComplete() {
   );
 }
 
+// const tasksCompleted = tasksData._rawValue.filter(
+//   (task) => task.is_complete === true
+// );
 // declarando la función asíncrona que se encargará de borrar una tarea en supabase
 const deleteTaskFather = async (taskId) => {
   await taskStore.deleteTask(taskId);
@@ -99,7 +106,19 @@ const updateTaskFather = async (id, title, description) => {
   await taskStore.updateTask(id, title, description);
   getTasks();
 };
+// función para sacar un array con las tareas completadas
+function getTasksCompleted() {
+  tasksCompleted.value = tasksData.value.filter(
+    (task) => task.is_complete === true
+  );
+}
 
+// funcion para sacar un array con las tareas incompletas
+function getTasksUnCompleted() {
+  tasksUnCompleted.value = tasksData.value.filter(
+    (task) => task.is_complete === false
+  );
+}
 // mostrar los completados
 // const showCompleteTaskFather = async (is_complete) => {
 //   await taskStore.showComplete(is_complete);
