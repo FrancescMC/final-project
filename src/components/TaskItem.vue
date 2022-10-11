@@ -35,7 +35,7 @@
             alt="trashcan logo"
           />
         </button>
-        <button @click="toggleTask" class="card-button">
+        <button @click="completeTask" class="card-button">
           <img
             class="logo-img"
             src="https://res.cloudinary.com/dglwarix0/image/upload/v1665472914/Ironhack-ToDo-Vue/check_bdgd2l.svg"
@@ -81,19 +81,7 @@ const deleteTask = () => {
 // };
 // completar tareas
 const completeTask = () => {
-  emit("completeTaskChildren", props.task.id);
-};
-
-// marcar tareas como incompletas
-const unCompleteTask = () => {
-  emit("unCompleteTaskChildren", props.task.id);
-};
-
-// función para cambiar de completo a incompleto y viceversa
-const toggleTask = () => {
-  const toggledTask = ref(!props.task.is_complete);
-  toggledTask.value ? completeTask() : unCompleteTask();
-  console.log(toggledTask.value);
+  emit("completeTaskChildren", props.task.id, props.task.is_complete);
 };
 </script>
 

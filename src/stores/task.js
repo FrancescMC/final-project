@@ -15,6 +15,7 @@ export const useTaskStore = defineStore("tasks", {
       this.tasks = tasks;
       return this.tasks;
     },
+
     // New code
     async addTask(title, description) {
       console.log(useUserStore().user.id);
@@ -35,10 +36,10 @@ export const useTaskStore = defineStore("tasks", {
         .match({ id: taskId });
     },
     // Función para completar tareas
-    async completeTask(taskId) {
+    async completeTask(taskId, bool) {
       const { data, error } = await supabase
         .from("tasks")
-        .update({ is_complete: true })
+        .update({ is_complete: !bool })
         .match({ id: taskId });
     },
     // Función para descompletar tareas
@@ -57,12 +58,29 @@ export const useTaskStore = defineStore("tasks", {
         .delete()
         .match({ id: taskId });
     },
-    async deleteAllTask(userId) {
+    async deleteAllTask() {
       const { data, error } = await supabase
         .from("tasks")
         .delete()
-        .match()
-        .execute();
+        .match({ user_id: useUserStore().user.id });
+    },
+
+    // funciones de filtrado
+
+    async showComplete() {
+      const { data, error } = await supabase
+        .from("tasks")
+        .select("*")
+        .match({ is_complete: true });
+    },
+
+    async showComplete() {
+      const { data: tasks } = await supabase
+        .from("tasks")
+        .update({ is_complete: false })
+        .match({ is_complete: true });
+      this.tasks = tasks;
+      return this.tasks;
     },
   },
 });

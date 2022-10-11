@@ -2,18 +2,20 @@
   <div class="nav-bar">
     <Nav />
   </div>
+  <DeleteAll @deleteAllTaskChildren="deleteAllTaskFather" />
   <div class="new-task-wrapper">
     <h3>create a new card</h3>
     <NewTask @createTaskChildren="createTaskFather" />
+    <button @click="showComplete">showComplete</button>
   </div>
+  <div><Filters @showCompleteTaskChildren="showCompleteTaskFather" /></div>
   <div class="cards-wrapper">
     <TaskItem
       @deleteTaskChildren="deleteTaskFather"
       @completeTaskChildren="completeTaskFather"
-      @unCompleteTaskChildren="unCompleteTaskFather"
       @updateTaskChildren="updateTaskFather"
       @deleteAllTaskChildren="deleteAllTaskFather"
-      v-for="task in taskStore.tasks"
+      v-for="task in tasksArray"
       :task="task"
       :key="task.id"
     />
@@ -21,18 +23,43 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, onUpdated } from "vue";
 import TaskItem from "../components/TaskItem.vue";
 import { useTaskStore } from "../stores/task";
 import Nav from "../components/Nav.vue";
 import NewTask from "../components/NewTask.vue";
 import DeleteAll from "../components/DeleteAll.vue";
+import Filters from "../components/Filters.vue";
 
 // nos definimos una variable para simplificar el uso de la store, que es lo equivale a la store como tal mediante un método para poder usar lo que contiene dentro.
 const taskStore = useTaskStore();
-onMounted(() => {
-  taskStore.fetchTasks();
+onMounted(async () => {
+  getTasks();
 });
+
+const tasksArray = ref([]);
+const tasksData = ref([]);
+
+async function getTasks() {
+  tasksData.value = await taskStore.fetchTasks();
+  tasksArray.value = await taskStore.fetchTasks();
+}
+
+async function showComplete() {
+  console.log("hola");
+  console.log(tasksArray);
+  tasksArray.value = tasksArray.value.filter(
+    (task) => task.is_complete === true
+  );
+}
+
+// filters
+// showNotCompleted() {
+//       this.componentToDos = this.toDos;
+//       this.componentToDos = this.componentToDos.filter(
+//         (toDo: any) => toDo.completed !== true
+//       );
+// }
 
 // declarando la función asíncrona que se encargará de borrar una tarea en supabase
 const deleteTaskFather = async (taskId) => {
@@ -40,18 +67,14 @@ const deleteTaskFather = async (taskId) => {
   taskStore.fetchTasks();
 };
 // declarando la función asíncrona que se encargará de borrar todas las tareas a la vez
-const deleteAllTaskFather = async (userId) => {
-  await taskStore.deleteAllTask(userId);
+const deleteAllTaskFather = async () => {
+  await taskStore.deleteAllTask();
   taskStore.fetchTasks();
 };
 // declarando la función asíncrona que se encargará de marcar como completa una tarea en supabase
-const completeTaskFather = async (taskId) => {
-  await taskStore.completeTask(taskId);
-  taskStore.fetchTasks();
-};
-const unCompleteTaskFather = async (taskId) => {
-  await taskStore.unCompleteTask(taskId);
-  taskStore.fetchTasks();
+const completeTaskFather = async (taskId, bool) => {
+  await taskStore.completeTask(taskId, bool);
+  getTasks();
 };
 
 // declarando la función asíncrona que se encargará de enviar una tarea a supabase
@@ -65,6 +88,15 @@ const updateTaskFather = async (id, title, description) => {
   await taskStore.updateTask(id, title, description);
   taskStore.fetchTasks();
 };
+
+// funciones de filtrado
+
+// mostrar los completados
+const showCompleteTaskFather = async (is_complete) => {
+  await taskStore.showComplete(is_complete);
+};
+
+console.log(taskStore.fetchTasks());
 </script>
 
 <style></style>

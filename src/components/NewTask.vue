@@ -12,6 +12,7 @@
         type="text"
         id="taskDescription"
         placeholder="Description"
+        size="100%"
       />
       <div class="card-buttons">
         <button @click="createTask" class="card-button">
