@@ -24,21 +24,21 @@
         <button @click="updateTask" class="card-button">
           <img
             class="logo-img"
-            src="../assets/icons/edit.svg"
+            src="https://res.cloudinary.com/dglwarix0/image/upload/v1665472914/Ironhack-ToDo-Vue/edit_zaqmer.svg"
             alt="trashcan logo"
           />
         </button>
         <button @click="deleteTask" class="card-button">
           <img
             class="logo-img"
-            src="../assets/icons/trashcan.svg"
+            src="https://res.cloudinary.com/dglwarix0/image/upload/v1665472914/Ironhack-ToDo-Vue/trashcan_mw4ep7.svg"
             alt="trashcan logo"
           />
         </button>
         <button @click="toggleTask" class="card-button">
           <img
             class="logo-img"
-            src="../assets/icons/check.svg"
+            src="https://res.cloudinary.com/dglwarix0/image/upload/v1665472914/Ironhack-ToDo-Vue/check_bdgd2l.svg"
             alt="trashcan logo"
           />
         </button>

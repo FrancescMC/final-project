@@ -15,7 +15,11 @@
       />
       <div class="card-buttons">
         <button @click="createTask" class="card-button">
-          <img class="logo-img-create" src="../assets/icons/add.svg" alt="" />
+          <img
+            class="logo-img-create"
+            src="https://res.cloudinary.com/dglwarix0/image/upload/v1665472914/Ironhack-ToDo-Vue/add_uepp2b.svg"
+            alt=""
+          />
         </button>
       </div>
       <div>
