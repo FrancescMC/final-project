@@ -49,7 +49,7 @@ import { useRouter } from "vue-router";
 import PersonalRouter from "./PersonalRouter.vue";
 import { useUserStore } from "../stores/user";
 // Route Variables
-const route = "/auth/login";
+const route = "/auth/sign-in";
 const buttonText = "Have an account?";
 // Input Fields
 const email = ref(null);
