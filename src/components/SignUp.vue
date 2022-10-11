@@ -34,7 +34,9 @@
             id="confirmPassword"
           />
         </div>
-        <button class="login-button" type="submit">Sign Up</button>
+        <button class="login-button" type="submit" :route="route">
+          Sign Up
+        </button>
         <p class="">
           <PersonalRouter :route="route" :buttonText="buttonText" />
         </p>
