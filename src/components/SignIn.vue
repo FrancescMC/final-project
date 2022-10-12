@@ -61,7 +61,7 @@ const toggleDark = () => {
 };
 
 // Route Variables
-const route = "/auth/";
+const route = "/auth/sign-up";
 const buttonText = "Create an account";
 
 // Input Fields
@@ -86,7 +86,7 @@ const signIn = async () => {
     // calls the user store and send the users info to backend to logIn
     await useUserStore().signIn(email.value, password.value);
     // redirects user to the homeView
-    redirect.push({ path: "/auth" });
+    redirect.push({ path: "/" });
   } catch (error) {
     // displays error message
     errorMsg.value = `Error: ${error.message}`;
@@ -99,7 +99,7 @@ const signIn = async () => {
 const signInWithGoogle = async () => {
   try {
     await signInWithGoogle();
-    redirect.push({ path: "/auth" });
+    redirect.push({ path: "/" });
   } catch (error) {
     errorMsg.value = `Error: ${error.message}`;
     setTimeout(() => {
@@ -110,7 +110,7 @@ const signInWithGoogle = async () => {
 const signInWithGitHub = async () => {
   try {
     await signInWithGitHub();
-    redirect.push({ path: "/sign-up" });
+    redirect.push({ path: "/" });
   } catch (error) {
     errorMsg.value = `Error: ${error.message}`;
     setTimeout(() => {
