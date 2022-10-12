@@ -3,8 +3,8 @@
     <main class="main">
       <h1>Log in</h1>
       <form class="form-wrapper" @submit.prevent="signIn">
-        <div>Continue with Google</div>
-        <div>Continue with Discord</div>
+        <button @click="signInWithGoogle">Continue with Google</button>
+        <button @click="signInWithGitHub">Continue with GitHub</button>
         <div class="email-form form">
           <label class="" for="">Email</label>
           <input
@@ -29,10 +29,10 @@
             />
 
             <span class="">
-              <EyeIcon
+              <!-- <EyeIcon
                 :class="[passwordFieldIcon]"
                 @click.prevent="hidePassword = !hidePassword"
-              />
+              /> -->
             </span>
             <p v-if="errorMsg" class="">
               {{ errorMsg }}
@@ -52,11 +52,8 @@
 <script setup>
 import { ref, computed } from "vue";
 import PersonalRouter from "./PersonalRouter.vue";
-import { supabase } from "../supabase";
 import { useRouter } from "vue-router";
 import { useUserStore } from "../stores/user";
-import { storeToRefs } from "pinia";
-import DarkMode from "./DarkMode.vue";
 
 const light = ref(true);
 const toggleDark = () => {
@@ -94,6 +91,28 @@ const signIn = async () => {
     // displays error message
     errorMsg.value = `Error: ${error.message}`;
     // hides error message
+    setTimeout(() => {
+      errorMsg.value = null;
+    }, 5000);
+  }
+};
+const signInWithGoogle = async () => {
+  try {
+    await signInWithGoogle();
+    redirect.push({ path: "/" });
+  } catch (error) {
+    errorMsg.value = `Error: ${error.message}`;
+    setTimeout(() => {
+      errorMsg.value = null;
+    }, 5000);
+  }
+};
+const signInWithGitHub = async () => {
+  try {
+    await signInWithGitHub();
+    redirect.push({ path: "/" });
+  } catch (error) {
+    errorMsg.value = `Error: ${error.message}`;
     setTimeout(() => {
       errorMsg.value = null;
     }, 5000);
