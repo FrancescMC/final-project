@@ -1,7 +1,11 @@
 <template>
-  <div>
-    <button class="logout-button dontHide">Welcome, {{ userName }}</button>
-    <button @click="signOut" class="logout-button hide">Log Out</button>
+  <div class="user-wrapper">
+    <p class="userName">Welcome, {{ userName }}</p>
+    <img
+      class="nav-img"
+      src="https://res.cloudinary.com/dglwarix0/image/upload/v1665600737/Ironhack-ToDo-Vue/logout2_d3sj46.svg"
+      alt="logout-logo"
+    />
   </div>
   <div class="nav-logo">
     <img

@@ -16,7 +16,7 @@
         :placeholder="props.task.description"
         spellcheck="false"
         cols="30"
-        rows="10"
+        rows="6"
         disabled
       ></textarea>
       <div class="card-buttons">
@@ -58,7 +58,7 @@
         :placeholder="props.task.description"
         spellcheck="false"
         cols="30"
-        rows="10"
+        rows="6"
       ></textarea>
       <div class="card-buttons">
         <button @click="updateTask" class="card-button">

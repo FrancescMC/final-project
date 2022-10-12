@@ -2,33 +2,35 @@
   <div class="nav-bar">
     <Nav />
   </div>
-  <div class="new-task-wrapper">
-    <h3>Create a new card</h3>
-    <NewTask @createTaskChildren="createTaskFather" />
-    <div class="filter-button-wrapper">
-      <button class="filter-button" @click="showAll">
-        show all ({{ tasksData.length }})
-      </button>
-      <button class="filter-button" @click="showComplete">
-        show completed ({{ tasksCompleted.length }})
-      </button>
-      <button class="filter-button" @click="showUnComplete">
-        show uncompleted ({{ tasksUnCompleted.length }})
-      </button>
+  <main class="main-tasks-wrapper">
+    <div class="new-task-wrapper">
+      <h3>Create a new card</h3>
+      <NewTask @createTaskChildren="createTaskFather" />
+      <div class="filter-button-wrapper">
+        <button class="filter-button" @click="showAll">
+          show all ({{ tasksData.length }})
+        </button>
+        <button class="filter-button" @click="showUnComplete">
+          show uncompleted ({{ tasksUnCompleted.length }})
+        </button>
+        <button class="filter-button" @click="showComplete">
+          show completed ({{ tasksCompleted.length }})
+        </button>
+      </div>
     </div>
-  </div>
 
-  <div class="cards-wrapper">
-    <TaskItem
-      @deleteTaskChildren="deleteTaskFather"
-      @completeTaskChildren="completeTaskFather"
-      @updateTaskChildren="updateTaskFather"
-      @deleteAllTaskChildren="deleteAllTaskFather"
-      v-for="task in tasksArray"
-      :task="task"
-      :key="task.id"
-    />
-  </div>
+    <div class="cards-wrapper">
+      <TaskItem
+        @deleteTaskChildren="deleteTaskFather"
+        @completeTaskChildren="completeTaskFather"
+        @updateTaskChildren="updateTaskFather"
+        @deleteAllTaskChildren="deleteAllTaskFather"
+        v-for="task in tasksArray"
+        :task="task"
+        :key="task.id"
+      />
+    </div>
+  </main>
   <div class="delete-button">
     <Button @buttonActivation="deleteAllTaskFather" />
   </div>
@@ -141,8 +143,8 @@ console.log(taskStore.fetchTasks());
   padding: 10px;
 }
 .delete-button {
-  display: flex;
-  justify-content: center;
+  position: fixed;
+  bottom: 50px;
 }
 .del-button {
   color: #eff6e0;
@@ -150,5 +152,6 @@ console.log(taskStore.fetchTasks());
   border-radius: 7px;
   background-color: #124559;
   padding: 10px;
+  height: 40px;
 }
 </style>

@@ -91,6 +91,7 @@ npm run build
             -He cambiado el favicon y he elegido un nombre para la web (se me da fatal el naming)
             -He añadido el mismo logo y he puesto el nombre de la web en la navbar.
             -He añadido el footer con un enlace a mi GitHub.
+            -He cambiado la scroll bar de los textareas.
     Jueves 13/10 (day8)
         Intención:
             -Confirmar el correcto funcionamiento del login con google y github.
