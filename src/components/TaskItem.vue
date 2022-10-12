@@ -30,14 +30,14 @@
         <button class="card-button">
           <img
             class="logo-img disabled-logo"
-            src="https://res.cloudinary.com/dglwarix0/image/upload/v1665472914/Ironhack-ToDo-Vue/trashcan_mw4ep7.svg"
+            src="https://res.cloudinary.com/dglwarix0/image/upload/v1665587786/Ironhack-ToDo-Vue/trashcan2_odn0fp.svg"
             alt="trashcan logo"
           />
         </button>
         <button @click="completeTask" class="card-button">
           <img
             class="logo-img active-logo"
-            src="https://res.cloudinary.com/dglwarix0/image/upload/v1665572495/Ironhack-ToDo-Vue/cross_n7bvqn.svg"
+            src="https://res.cloudinary.com/dglwarix0/image/upload/v1665588954/Ironhack-ToDo-Vue/reload_zvhcod.svg"
             alt="uncompletetask-logo"
           />
         </button>
@@ -71,14 +71,14 @@
         <button @click="deleteTask" class="card-button">
           <img
             class="logo-img active-logo"
-            src="https://res.cloudinary.com/dglwarix0/image/upload/v1665472914/Ironhack-ToDo-Vue/trashcan_mw4ep7.svg"
+            src="https://res.cloudinary.com/dglwarix0/image/upload/v1665587786/Ironhack-ToDo-Vue/trashcan2_odn0fp.svg"
             alt="trashcan logo"
           />
         </button>
         <button @click="completeTask" class="card-button">
           <img
             class="logo-img active-logo"
-            src="https://res.cloudinary.com/dglwarix0/image/upload/v1665472914/Ironhack-ToDo-Vue/check_bdgd2l.svg"
+            src="https://res.cloudinary.com/dglwarix0/image/upload/v1665588952/Ironhack-ToDo-Vue/check3_mhro8l.svg"
             alt="completetask-logo"
           />
         </button>
@@ -89,10 +89,12 @@
 
 <script setup>
 import { ref } from "vue";
+import { inject } from "vue";
 const taskTitle = ref(props.task.title);
 const taskDescription = ref(props.task.description);
 // definimos props
 const props = defineProps(["task"]);
+const toast = inject("$toast");
 // defino los emits
 const emit = defineEmits([
   "deleteTaskChildren",
@@ -103,6 +105,7 @@ const emit = defineEmits([
 ]);
 // actualizar tareas
 const updateTask = () => {
+  toast("Saved!");
   emit(
     "updateTaskChildren",
     props.task.id,
@@ -122,8 +125,4 @@ const completeTask = () => {
 };
 </script>
 
-<style>
-.logo-img {
-  width: 100%;
-}
-</style>
+<style></style>

@@ -102,12 +102,25 @@ a {
   display: flex;
 }
 .card-button {
-  background-color: #aec3b0;
-  color: #eff6e0;
+  background-color: inherit;
   border-style: none;
   border-radius: 7px;
   width: 50px;
+  height: 50px;
 }
+.card-button:active {
+  transform: translate(0px, 1px);
+  -webkit-transform: translate(0px, 1px);
+}
+.logo-img {
+  width: 96%;
+  padding: 4%;
+}
+.logo-img:hover {
+  padding: 0;
+  width: 100%;
+}
+
 input {
   color: #124559;
   background-color: #aec3b0;
@@ -115,6 +128,7 @@ input {
   font-size: 1.1em;
   font-weight: bold;
   text-align: center;
+  padding-bottom: 15px;
 }
 
 textarea {

@@ -9,7 +9,7 @@
           <input
             class=""
             type="email"
-            placeholder="dave@wuTangfinancial.com"
+            placeholder="your email"
             v-model="email"
             id="email"
           />

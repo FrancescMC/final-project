@@ -17,7 +17,7 @@
       <div class="card-buttons">
         <button @click="createTask" class="card-button">
           <img
-            class="logo-img-create active-logo"
+            class="active-logo logo-img"
             src="https://res.cloudinary.com/dglwarix0/image/upload/v1665577389/Ironhack-ToDo-Vue/add2_yhhwjj.svg"
             alt=""
           />
@@ -64,8 +64,4 @@ const createTask = () => {
 };
 </script>
 
-<style>
-.logo-img-create {
-  width: 100%;
-}
-</style>
+<style></style>

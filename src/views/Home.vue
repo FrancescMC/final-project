@@ -140,4 +140,11 @@ console.log(taskStore.fetchTasks());
   display: flex;
   justify-content: center;
 }
+.del-button {
+  color: #eff6e0;
+  border-style: none;
+  border-radius: 7px;
+  background-color: #124559;
+  padding: 10px;
+}
 </style>
