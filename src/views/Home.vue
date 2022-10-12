@@ -3,7 +3,7 @@
     <Nav />
   </div>
   <div class="new-task-wrapper">
-    <h3>create a new card</h3>
+    <h3>Create a new card</h3>
     <NewTask @createTaskChildren="createTaskFather" />
     <div class="filter-button-wrapper">
       <button class="filter-button" @click="showAll">
