@@ -5,13 +5,13 @@
         v-model="taskTitle"
         type="text"
         id="newTaskTitle"
-        placeholder="Title"
+        placeholder="Add a title..."
       />
       <input
         v-model="taskDescription"
         type="text"
         id="taskDescription"
-        placeholder="Description"
+        placeholder="Add a description..."
         size="100%"
       />
       <div class="card-buttons">

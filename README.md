@@ -82,12 +82,30 @@ npm run build
 
     Miércoles 12/10 (day7)
         Estilo
+        Resultado:
+            -He añadido la posibilidad de acceder con google y con github(falta confirmar correcto funcionamiento)
+            -He estilado un poco la web
+            -He puesto los iconos con un trazo más parecido.
+            -Cuando hacemos hover en in ocono, se hace un poquito más grande y al clickar, los iconos reaccionan.
+            -Cuando se marca la tarea como completada, ésta se difumina un poco, no permite escribir y los iconos de guardado y borrado pierden opacidad y se desactivan.
+            -He cambiado el favicon y he elegido un nombre para la web (se me da fatal el naming)
+            -He añadido el mismo logo y he puesto el nombre de la web en la navbar.
+            -He añadido el footer con un enlace a mi GitHub.
+    Jueves 13/10 (day8)
+        Intención:
+            -Confirmar el correcto funcionamiento del login con google y github.
+            -Añadir estilo a los botones de google y github.
+            -Cambiar la forma en la que aparece nuestro usuario(quitar el @etc.etc) y poner el logout de otra manera(ahora mismo solo aparece si hacemos hover en el nombre de usuario)
+            -Hacer que la web sea responsive en mobile, tablet y desktop.
+            -En desktop hacer que las tareas creen una nueva fila a partir de 4.
+            -En tablet hacer que las tareas creen una nueva fila a partir de (decidir si 2 o 3).
+            -Intentar dejarlo lo más bonito posible.
+            -Crear un darkmode (simplemente cambiar el color de fondo)
+            -Empezar la presentación.
+
+
 
     Backlog:
-        Poder borrar todos los TO-DOs al mismo tiempo
-        Poder ver solamente los TO-DOs pendientes
-        Poder ver solamente los TO-DOs completados
-        Crear un icono y usarlo en varios sitios
         Que todo esté bonito
 
 ### Links:

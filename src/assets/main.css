@@ -39,6 +39,16 @@ a {
   justify-content: space-between;
   height: 40px;
 }
+.nav-logo {
+  color: #124559;
+  display: flex;
+  align-items: center;
+  font-size: 1.3em;
+  font-weight: 500;
+}
+.nav-img {
+  height: 100%;
+}
 .new-task-wrapper {
   display: flex;
   flex-direction: column;
@@ -137,6 +147,17 @@ textarea {
   border-style: none;
   text-decoration: none;
   font-size: 1em;
+}
+.footer {
+  font-weight: bold;
+  background-color: #aec3b0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  height: 40px;
 }
 @media (min-width: 851px) {
   h1 {

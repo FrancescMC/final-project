@@ -32,6 +32,9 @@
   <div class="delete-button">
     <Button @buttonActivation="deleteAllTaskFather" />
   </div>
+  <div class="footer">
+    <Footer />
+  </div>
 </template>
 
 <script setup>
@@ -39,6 +42,7 @@ import { ref, onMounted, onUpdated } from "vue";
 import TaskItem from "../components/TaskItem.vue";
 import { useTaskStore } from "../stores/task";
 import Nav from "../components/Nav.vue";
+import Footer from "../components/Footer.vue";
 import NewTask from "../components/NewTask.vue";
 import Button from "../components/Button.vue";
 

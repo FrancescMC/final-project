@@ -1,10 +1,16 @@
 <template>
-  <button class="logout-button dontHide">Welcome, {{ userName }}</button>
-  <button @click="signOut" class="logout-button hide">Log Out</button>
-  <img
-    src="https://res.cloudinary.com/dglwarix0/image/upload/v1665588448/Ironhack-ToDo-Vue/leafblue_vfddqf.svg"
-    alt=""
-  />
+  <div>
+    <button class="logout-button dontHide">Welcome, {{ userName }}</button>
+    <button @click="signOut" class="logout-button hide">Log Out</button>
+  </div>
+  <div class="nav-logo">
+    <img
+      class="nav-img"
+      src="https://res.cloudinary.com/dglwarix0/image/upload/v1665588448/Ironhack-ToDo-Vue/leafblue_vfddqf.svg"
+      alt=""
+    />
+    Taskie
+  </div>
   <!-- <p>Welcome, {{ userName }}</p> -->
   <div v-if="errorMessageContainer">
     <p>{{ errorMessage }}</p>
