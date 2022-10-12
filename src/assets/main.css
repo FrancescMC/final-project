@@ -82,6 +82,9 @@ a {
   opacity: 85%;
   text-decoration: line-through;
 }
+.active-logo:hover {
+  cursor: pointer;
+}
 .disabled-logo {
   opacity: 30%;
 }

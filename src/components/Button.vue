@@ -1,5 +1,5 @@
 <template>
-  <button @click="activateButton" class="card-button">DELALL</button>
+  <button @click="activateButton" class="card-button">Delete All Tasks</button>
 </template>
 
 <script setup>

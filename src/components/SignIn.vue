@@ -86,7 +86,7 @@ const signIn = async () => {
     // calls the user store and send the users info to backend to logIn
     await useUserStore().signIn(email.value, password.value);
     // redirects user to the homeView
-    redirect.push({ path: "/" });
+    redirect.push({ path: "/sign-up" });
   } catch (error) {
     // displays error message
     errorMsg.value = `Error: ${error.message}`;
@@ -99,7 +99,7 @@ const signIn = async () => {
 const signInWithGoogle = async () => {
   try {
     await signInWithGoogle();
-    redirect.push({ path: "/" });
+    redirect.push({ path: "/sign-up" });
   } catch (error) {
     errorMsg.value = `Error: ${error.message}`;
     setTimeout(() => {
@@ -110,7 +110,7 @@ const signInWithGoogle = async () => {
 const signInWithGitHub = async () => {
   try {
     await signInWithGitHub();
-    redirect.push({ path: "/" });
+    redirect.push({ path: "/sign-up" });
   } catch (error) {
     errorMsg.value = `Error: ${error.message}`;
     setTimeout(() => {

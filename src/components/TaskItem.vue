@@ -36,7 +36,7 @@
         </button>
         <button @click="completeTask" class="card-button">
           <img
-            class="logo-img"
+            class="logo-img active-logo"
             src="https://res.cloudinary.com/dglwarix0/image/upload/v1665572495/Ironhack-ToDo-Vue/cross_n7bvqn.svg"
             alt="uncompletetask-logo"
           />
@@ -63,21 +63,21 @@
       <div class="card-buttons">
         <button @click="updateTask" class="card-button">
           <img
-            class="logo-img"
+            class="logo-img active-logo"
             src="https://res.cloudinary.com/dglwarix0/image/upload/v1665571884/Ironhack-ToDo-Vue/save_ocolmn.svg"
             alt="save-logo"
           />
         </button>
         <button @click="deleteTask" class="card-button">
           <img
-            class="logo-img"
+            class="logo-img active-logo"
             src="https://res.cloudinary.com/dglwarix0/image/upload/v1665472914/Ironhack-ToDo-Vue/trashcan_mw4ep7.svg"
             alt="trashcan logo"
           />
         </button>
         <button @click="completeTask" class="card-button">
           <img
-            class="logo-img"
+            class="logo-img active-logo"
             src="https://res.cloudinary.com/dglwarix0/image/upload/v1665472914/Ironhack-ToDo-Vue/check_bdgd2l.svg"
             alt="completetask-logo"
           />
