@@ -68,6 +68,7 @@ a {
 .user-wrapper {
   display: flex;
   align-items: center;
+  heigh: 100%;
 }
 .new-task-wrapper {
   display: flex;

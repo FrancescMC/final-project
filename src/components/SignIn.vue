@@ -98,7 +98,7 @@ const signIn = async () => {
 };
 const signInWithGoogle = async () => {
   try {
-    await signInWithGoogle();
+    await useUserStore().signInWithGoogle();
     redirect.push({ path: "/" });
   } catch (error) {
     errorMsg.value = `Error: ${error.message}`;
@@ -109,7 +109,7 @@ const signInWithGoogle = async () => {
 };
 const signInWithGitHub = async () => {
   try {
-    await signInWithGitHub();
+    await useUserStore().signInWithGitHub();
     redirect.push({ path: "/" });
   } catch (error) {
     errorMsg.value = `Error: ${error.message}`;

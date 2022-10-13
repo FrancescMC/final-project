@@ -1,12 +1,12 @@
 <template>
-  <div class="user-wrapper">
+  <div class="user-wrapper nav-logo">
     <p class="userName">Welcome, {{ userName }}</p>
-    <a href=""
-      ><img
-        class="nav-img"
-        src="https://res.cloudinary.com/dglwarix0/image/upload/v1665600737/Ironhack-ToDo-Vue/logout2_d3sj46.svg"
-        alt="logout-logo"
-    /></a>
+    <img
+      @click="signOut"
+      class="nav-img"
+      src="https://res.cloudinary.com/dglwarix0/image/upload/v1665600737/Ironhack-ToDo-Vue/logout2_d3sj46.svg"
+      alt="logout-logo"
+    />
   </div>
   <div class="nav-logo">
     <img
