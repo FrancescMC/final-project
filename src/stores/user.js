@@ -20,15 +20,23 @@ export const useUserStore = defineStore("user", {
         console.log(this.user);
       }
     },
+    // async signInWithGoogle() {
+    //   const { user, session, error } = await supabase.auth.signIn({
+    //     provider: "google",
+    //   });
+    //   if (error) throw error;
+    //   if (user) {
+    //     this.user = user;
+    //     console.log(this.user);
+    //   }
+    // },
     async signInWithGoogle() {
-      const { user, session, error } = await supabase.auth.signIn({
+      const { data, error } = await supabase.auth.signInWithOAuth({
         provider: "google",
+        options: {
+          redirectTo: "https://example.com/welcome",
+        },
       });
-      if (error) throw error;
-      if (user) {
-        this.user = user;
-        console.log(this.user);
-      }
     },
     // const signInWithGoogle = async () => {
     //   try {
