@@ -38,6 +38,7 @@ export const useUserStore = defineStore("user", {
             "https://ujryhinhvmeofdmohgmw.supabase.co/auth/v1/callback",
         },
       });
+      fetchUser();
       console.log("user", user);
     },
     // const signInWithGoogle = async () => {
