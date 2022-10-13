@@ -105,6 +105,7 @@ const emit = defineEmits([
 ]);
 // actualizar tareas
 const updateTask = () => {
+  console.log("usuario actual", useUserStore().user);
   toast("Saved!");
   emit(
     "updateTaskChildren",
