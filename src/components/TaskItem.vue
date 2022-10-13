@@ -1,6 +1,11 @@
 <template>
   <div class="card-wrapper">
     <div v-if="task.is_complete" class="card completed-card">
+      <img
+        class="card-plant-logo"
+        src="https://res.cloudinary.com/dglwarix0/image/upload/v1665679733/Ironhack-ToDo-Vue/hojassvg_ytcx85.svg"
+        alt=""
+      />
       <input
         v-model="taskTitle"
         type="text"
@@ -16,7 +21,7 @@
         :placeholder="props.task.description"
         spellcheck="false"
         cols="30"
-        rows="6"
+        rows="4"
         disabled
       ></textarea>
       <div class="card-buttons">
@@ -27,9 +32,9 @@
             alt="save-logo"
           />
         </button>
-        <button class="card-button">
+        <button @click="deleteTask" class="card-button">
           <img
-            class="logo-img disabled-logo"
+            class="logo-img"
             src="https://res.cloudinary.com/dglwarix0/image/upload/v1665587786/Ironhack-ToDo-Vue/trashcan2_odn0fp.svg"
             alt="trashcan logo"
           />
@@ -44,6 +49,11 @@
       </div>
     </div>
     <div v-else class="card un-completed-card">
+      <img
+        class="card-plant-logo"
+        src="https://res.cloudinary.com/dglwarix0/image/upload/v1665680224/Ironhack-ToDo-Vue/hojacompuesta2_zxtq6l.svg"
+        alt=""
+      />
       <input
         v-model="taskTitle"
         type="text"
@@ -58,7 +68,7 @@
         :placeholder="props.task.description"
         spellcheck="false"
         cols="30"
-        rows="6"
+        rows="4"
       ></textarea>
       <div class="card-buttons">
         <button @click="updateTask" class="card-button">
@@ -127,4 +137,34 @@ const completeTask = () => {
 };
 </script>
 
-<style></style>
+<style>
+.card-plant-logo {
+  width: 57px;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+}
+textarea {
+  color: #124559;
+  background-color: #aec3b0;
+  border-style: none;
+  text-decoration: none;
+  font-size: 1em;
+  resize: none;
+  margin: 15px;
+}
+textarea::-webkit-scrollbar {
+  width: 12px;
+  background-color: #aec3b0;
+}
+textarea::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  background-color: #aec3b0;
+}
+textarea::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.4);
+  background-color: #598392;
+}
+</style>

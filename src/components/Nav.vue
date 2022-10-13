@@ -1,6 +1,6 @@
 <template>
   <div class="user-wrapper nav-logo">
-    <p class="userName">Welcome, {{ userName }}</p>
+    <p class="nav-text nav-user">{{ nameEmail }}'s Tasks</p>
     <img
       @click="signOut"
       class="nav-img"
@@ -11,14 +11,10 @@
   <div class="nav-logo">
     <img
       class="nav-img"
-      src="https://res.cloudinary.com/dglwarix0/image/upload/v1665588448/Ironhack-ToDo-Vue/leafblue_vfddqf.svg"
+      src="https://res.cloudinary.com/dglwarix0/image/upload/v1665680224/Ironhack-ToDo-Vue/hojacompuesta2_zxtq6l.svg"
       alt=""
     />
-    Taskie
-  </div>
-  <!-- <p>Welcome, {{ userName }}</p> -->
-  <div v-if="errorMessageContainer">
-    <p>{{ errorMessage }}</p>
+    <p class="nav-text">Taskie</p>
   </div>
 </template>
 
@@ -37,6 +33,8 @@ const userStore = useUserStore();
 // variable para mostrar error
 const errorMessageContainer = ref(false);
 const errorMessage = ref("");
+const arr = userName.value.indexOf("@");
+const nameEmail = ref(userName.value.slice(0, arr));
 // async function that calls the signOut method from the useUserStore and pushes the user back to the Auth view.
 async function signOut() {
   try {
@@ -50,31 +48,22 @@ async function signOut() {
     }, 2000);
   }
 }
-
-//constant to save a variable that will hold the use router method
-// constant to save a variable that will get the user from store with a computed function imported from vue
-
-// constant that calls user email from the useUSerStore
-
-// constant that saves the user email and cleans out the @client from the user
 </script>
 
 <style>
-.logout-button {
-  background-color: #aec3b0;
+.user-wrapper {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding-right: 10px;
+}
+.nav-user {
+  font-size: 0.8em;
+}
+.nav-text {
   color: #124559;
-  border-style: none;
-  margin-right: 20px;
 }
-
-.hide {
-  display: none;
-  text-align: center;
-}
-.dontHide:hover {
-  display: none;
-}
-.dontHide:hover + .hide {
-  display: block;
+.nav-img {
+  height: 57px;
 }
 </style>

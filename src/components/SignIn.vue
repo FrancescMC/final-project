@@ -2,8 +2,6 @@
   <div class="main-wrapper">
     <main class="main">
       <h1>Log in</h1>
-      <button @click="loginWithGoogle">Continue with Google</button>
-      <button @click="loginInWithGitHub">Continue with GitHub</button>
       <form class="form-wrapper" @submit.prevent="signIn">
         <div class="email-form form">
           <label class="" for="">Email</label>

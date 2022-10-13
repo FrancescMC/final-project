@@ -39,7 +39,7 @@ export const useUserStore = defineStore("user", {
         },
       });
       fetchUser();
-      console.log("user", user);
+      debugger;
     },
     // const signInWithGoogle = async () => {
     //   try {

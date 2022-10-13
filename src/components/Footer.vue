@@ -4,4 +4,9 @@
 
 <script setup></script>
 
-<style></style>
+<style>
+a {
+  font-size: 0.9em;
+  color: #124559;
+}
+</style>
