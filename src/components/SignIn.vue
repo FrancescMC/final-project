@@ -55,6 +55,7 @@ import PersonalRouter from "./PersonalRouter.vue";
 import { useRouter } from "vue-router";
 import { useUserStore } from "../stores/user";
 import { supabase } from "../supabase";
+import { useTaskStore } from "../stores/task";
 
 const light = ref(true);
 const toggleDark = () => {
@@ -121,7 +122,9 @@ const signInWithGoogle = async () => {
     const { user, session, error } = await supabase.auth.signIn({
       provider: "google",
     });
+    await useTaskStore().fetchUser();
     redirect.push({ path: "/" });
+    // console.log(useTaskStore().user);
   } catch (error) {
     errorMsg.value = `Error: ${error.message}`;
     setTimeout(() => {
