@@ -61,6 +61,7 @@ a {
   align-items: center;
   background-color: #aec3b0;
   border-radius: 5%;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
 }
 
 input {

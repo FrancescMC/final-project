@@ -1,7 +1,16 @@
 <template>
   <div class="main-wrapper">
     <main class="main">
+      <div class="login-logo">
+        <img
+          class="nav-img"
+          src="https://res.cloudinary.com/dglwarix0/image/upload/v1665680224/Ironhack-ToDo-Vue/hojacompuesta2_zxtq6l.svg"
+          alt=""
+        />
+        <p class="nav-text">Taskie</p>
+      </div>
       <h1>Log in</h1>
+
       <form class="form-wrapper" @submit.prevent="signIn">
         <div class="email-form form">
           <label class="" for="">Email</label>
@@ -137,6 +146,21 @@ const loginInWithGitHub = async () => {
 </script>
 
 <style>
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0px 1000px #aec3b0 inset;
+  -webkit-text-fill-color: #124559 !important;
+}
+.login-logo {
+  color: #124559;
+  display: flex;
+  align-items: center;
+  font-size: 1.3em;
+  font-weight: 500;
+  margin-left: -66px;
+}
 .login-button {
   background-color: #598392;
   color: #eff6e0;

@@ -51,6 +51,13 @@ async function signOut() {
 </script>
 
 <style>
+.nav-logo {
+  color: #124559;
+  display: flex;
+  align-items: center;
+  font-size: 1.3em;
+  font-weight: 500;
+}
 .user-wrapper {
   display: flex;
   align-items: center;

@@ -154,13 +154,7 @@ console.log(taskStore.fetchTasks());
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
   z-index: 999;
 }
-.nav-logo {
-  color: #124559;
-  display: flex;
-  align-items: center;
-  font-size: 1.3em;
-  font-weight: 500;
-}
+
 .new-task-wrapper {
   display: flex;
   flex-direction: column;

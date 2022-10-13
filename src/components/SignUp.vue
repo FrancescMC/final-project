@@ -1,8 +1,15 @@
 <template>
   <div class="main-wrapper">
     <main class="main">
+      <div class="login-logo">
+        <img
+          class="nav-img"
+          src="https://res.cloudinary.com/dglwarix0/image/upload/v1665680224/Ironhack-ToDo-Vue/hojacompuesta2_zxtq6l.svg"
+          alt=""
+        />
+        <p class="nav-text">Taskie</p>
+      </div>
       <h1>Sign Up</h1>
-
       <form class="form-wrapper" @submit.prevent="signUp">
         <div class="email-form form">
           <label class="" for="">Email</label>
