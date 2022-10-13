@@ -39,15 +39,6 @@ export const useUserStore = defineStore("user", {
       if (error) throw error;
     },
 
-    persist: {
-      enabled: true,
-      strategies: [
-        {
-          key: "user",
-          storage: localStorage,
-        },
-      ],
-    },
     // login con google
     async signInWithGoogle() {
       const { data, error } = await supabase.auth.signInWithOAuth({
@@ -58,6 +49,15 @@ export const useUserStore = defineStore("user", {
       const { data, error } = await supabase.auth.signInWithOAuth({
         provider: "github",
       });
+    },
+    persist: {
+      enabled: true,
+      strategies: [
+        {
+          key: "user",
+          storage: localStorage,
+        },
+      ],
     },
   },
 });
