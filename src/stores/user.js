@@ -31,13 +31,14 @@ export const useUserStore = defineStore("user", {
     //   }
     // },
     async signInWithGoogle() {
-      const { data, error } = await supabase.auth.signInWithOAuth({
+      const { user, session, error } = await supabase.auth.signIn({
         provider: "google",
         options: {
           redirectTo:
             "https://ujryhinhvmeofdmohgmw.supabase.co/auth/v1/callback",
         },
       });
+      console.log("user", user);
     },
     // const signInWithGoogle = async () => {
     //   try {
