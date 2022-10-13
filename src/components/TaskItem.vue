@@ -90,6 +90,7 @@
 <script setup>
 import { ref } from "vue";
 import { inject } from "vue";
+import { useUserStore } from "../stores/user";
 const taskTitle = ref(props.task.title);
 const taskDescription = ref(props.task.description);
 // definimos props
