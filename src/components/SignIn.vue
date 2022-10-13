@@ -122,7 +122,7 @@ const signInWithGoogle = async () => {
     const { user, session, error } = await supabase.auth.signIn({
       provider: "google",
     });
-    await useTaskStore().fetchUser();
+    await useUserStore().fetchUser();
     redirect.push({ path: "/" });
     // console.log(useTaskStore().user);
   } catch (error) {
