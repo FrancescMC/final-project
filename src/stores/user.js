@@ -20,6 +20,32 @@ export const useUserStore = defineStore("user", {
         console.log(this.user);
       }
     },
+    async signInWithGoogle() {
+      const { user, session, error } = await supabase.auth.signIn({
+        provider: "google",
+      });
+      if (error) throw error;
+      if (user) {
+        this.user = user;
+        console.log(this.user);
+      }
+    },
+    // const signInWithGoogle = async () => {
+    //   try {
+    //     const { user, session, error } = await supabase.auth.signIn({
+    //       provider: "google",
+    //     });
+    //     await useUserStore().fetchUser();
+    //     redirect.push({ path: "/" });
+    //     // console.log(useTaskStore().user);
+    //   } catch (error) {
+    //     errorMsg.value = `Error: ${error.message}`;
+    //     setTimeout(() => {
+    //       errorMsg.value = null;
+    //     }, 5000);
+    //   }
+    // };
+
     async signUp(email, password) {
       const { user, error } = await supabase.auth.signUp({
         email: email,

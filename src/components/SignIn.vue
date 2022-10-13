@@ -2,7 +2,7 @@
   <div class="main-wrapper">
     <main class="main">
       <h1>Log in</h1>
-      <button @click="signInWithGoogle">Continue with Google</button>
+      <button @click="loginWithGoogle">Continue with Google</button>
       <button @click="loginInWithGitHub">Continue with GitHub</button>
       <form class="form-wrapper" @submit.prevent="signIn">
         <div class="email-form form">
@@ -117,20 +117,8 @@ const signIn = async () => {
 //   });
 // }
 
-const signInWithGoogle = async () => {
-  try {
-    const { user, session, error } = await supabase.auth.signIn({
-      provider: "google",
-    });
-    await useUserStore().fetchUser();
-    redirect.push({ path: "/" });
-    // console.log(useTaskStore().user);
-  } catch (error) {
-    errorMsg.value = `Error: ${error.message}`;
-    setTimeout(() => {
-      errorMsg.value = null;
-    }, 5000);
-  }
+const loginWithGoogle = async () => {
+  await useUserStore().signInWithGoogle();
 };
 
 const loginInWithGitHub = async () => {
