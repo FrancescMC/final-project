@@ -2,9 +2,9 @@
   <div class="main-wrapper">
     <main class="main">
       <h1>Log in</h1>
+      <button @click="signInWithGoogle">Continue with Google</button>
+      <button @click="loginInWithGitHub">Continue with GitHub</button>
       <form class="form-wrapper" @submit.prevent="signIn">
-        <button @click="signInWithGoogle">Continue with Google</button>
-        <button @click="signInWithGitHub">Continue with GitHub</button>
         <div class="email-form form">
           <label class="" for="">Email</label>
           <input
@@ -54,6 +54,7 @@ import { ref, computed } from "vue";
 import PersonalRouter from "./PersonalRouter.vue";
 import { useRouter } from "vue-router";
 import { useUserStore } from "../stores/user";
+import { supabase } from "../supabase";
 
 const light = ref(true);
 const toggleDark = () => {
@@ -96,9 +97,30 @@ const signIn = async () => {
     }, 5000);
   }
 };
+
+// const loginInWithGoogle = async () => {
+//   try {
+//     await useUserStore().signInWithGoogle();
+//     redirect.push({ path: "/" });
+//   } catch (error) {
+//     errorMsg.value = `Error: ${error.message}`;
+//     setTimeout(() => {
+//       errorMsg.value = null;
+//     }, 5000);
+//   }
+// };
+// async function signInWithGoogle() {
+//   console.log("testing signInWithGoogle" + (await supabase.auth.signIn));
+//   const { user, session, error } = await supabase.auth.signIn({
+//     provider: "google",
+//   });
+// }
+
 const signInWithGoogle = async () => {
   try {
-    await useUserStore().signInWithGoogle();
+    const { user, session, error } = await supabase.auth.signIn({
+      provider: "google",
+    });
     redirect.push({ path: "/" });
   } catch (error) {
     errorMsg.value = `Error: ${error.message}`;
@@ -107,7 +129,8 @@ const signInWithGoogle = async () => {
     }, 5000);
   }
 };
-const signInWithGitHub = async () => {
+
+const loginInWithGitHub = async () => {
   try {
     await useUserStore().signInWithGitHub();
     redirect.push({ path: "/" });
