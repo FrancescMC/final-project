@@ -34,7 +34,8 @@ export const useUserStore = defineStore("user", {
       const { data, error } = await supabase.auth.signInWithOAuth({
         provider: "google",
         options: {
-          redirectTo: "https://example.com/welcome",
+          redirectTo:
+            "https://ujryhinhvmeofdmohgmw.supabase.co/auth/v1/callback",
         },
       });
     },
