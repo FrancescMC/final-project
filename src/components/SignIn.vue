@@ -86,7 +86,9 @@ const redirect = useRouter();
 const signIn = async () => {
   try {
     // calls the user store and send the users info to backend to logIn
+    console.log("fetchusers1" + useUserStore().user);
     await useUserStore().signIn(email.value, password.value);
+    console.log("fetchusers2" + useUserStore().user);
     // redirects user to the homeView
     redirect.push({ path: "/" });
   } catch (error) {
@@ -118,7 +120,9 @@ const signIn = async () => {
 // }
 
 const loginWithGoogle = async () => {
+  console.log("fetchuserg1" + useUserStore().user);
   await useUserStore().signInWithGoogle();
+  console.log("fetchuserg2" + useUserStore().user);
 };
 
 const loginInWithGitHub = async () => {

@@ -13,6 +13,7 @@ onMounted(async () => {
   const appReady = ref(null);
   try {
     await userStore.fetchUser(); // here we call fetch user
+    console.log("fetchuser" + useUserStore().user);
     if (!user.value) {
       // redirect them to logout if the user is not there
       appReady.value = true;
