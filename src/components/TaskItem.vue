@@ -3,7 +3,7 @@
     <div v-if="task.is_complete" class="card completed-card">
       <img
         class="card-plant-logo"
-        src="https://res.cloudinary.com/dglwarix0/image/upload/v1665679733/Ironhack-ToDo-Vue/hojassvg_ytcx85.svg"
+        src="https://res.cloudinary.com/dglwarix0/image/upload/v1665680224/Ironhack-ToDo-Vue/hojacompuesta2_zxtq6l.svg"
         alt=""
       />
       <input

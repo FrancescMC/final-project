@@ -1,6 +1,8 @@
 <template>
   <div class="card-wrapper">
     <div class="card">
+      <p>New Task</p>
+      <br />
       <input
         v-model="taskTitle"
         type="text"
@@ -14,6 +16,7 @@
         placeholder="Add a description..."
         size="100%"
       />
+
       <div class="card-buttons">
         <button @click="createTask" class="card-button">
           <img
