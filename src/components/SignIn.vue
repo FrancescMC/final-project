@@ -10,7 +10,6 @@
         <p class="nav-text">Taskie</p>
       </div>
       <h1>Log in</h1>
-
       <form class="form-wrapper" @submit.prevent="signIn">
         <div class="email-form form">
           <label class="" for="">Email</label>
@@ -24,7 +23,6 @@
         </div>
         <div class="password-form form">
           <label class="" for="">Password</label>
-
           <div class="">
             <input
               class=""
@@ -34,19 +32,10 @@
               v-model="password"
               id="password"
             />
-
-            <span class="">
-              <!-- <EyeIcon
-                :class="[passwordFieldIcon]"
-                @click.prevent="hidePassword = !hidePassword"
-              /> -->
-            </span>
-            <p v-if="errorMsg" class="">
-              {{ errorMsg }}
-            </p>
+            <span class=""> </span>
+            <p v-if="errorMsg" class="">Error trying to log in.</p>
           </div>
         </div>
-
         <button class="login-button" type="submit">Log in with email</button>
         <p class="change-login-text">
           <PersonalRouter :route="route" :buttonText="buttonText" />
@@ -61,13 +50,6 @@ import { ref, computed } from "vue";
 import PersonalRouter from "./PersonalRouter.vue";
 import { useRouter } from "vue-router";
 import { useUserStore } from "../stores/user";
-import { supabase } from "../supabase";
-import { useTaskStore } from "../stores/task";
-
-const light = ref(true);
-const toggleDark = () => {
-  light.value = !light.value;
-};
 
 // Route Variables
 const route = "/auth/sign-up";
@@ -76,9 +58,6 @@ const buttonText = "Create an account";
 // Input Fields
 const email = ref("");
 const password = ref("");
-
-// Error Message
-const errorMsg = ref("");
 
 //Show hide password variables
 const passwordFieldType = computed(() =>
@@ -102,42 +81,6 @@ const signIn = async () => {
     // displays error message
     errorMsg.value = `Error: ${error.message}`;
     // hides error message
-    setTimeout(() => {
-      errorMsg.value = null;
-    }, 5000);
-  }
-};
-
-// const loginInWithGoogle = async () => {
-//   try {
-//     await useUserStore().signInWithGoogle();
-//     redirect.push({ path: "/" });
-//   } catch (error) {
-//     errorMsg.value = `Error: ${error.message}`;
-//     setTimeout(() => {
-//       errorMsg.value = null;
-//     }, 5000);
-//   }
-// };
-// async function signInWithGoogle() {
-//   console.log("testing signInWithGoogle" + (await supabase.auth.signIn));
-//   const { user, session, error } = await supabase.auth.signIn({
-//     provider: "google",
-//   });
-// }
-
-const loginWithGoogle = async () => {
-  console.log("fetchuserg1" + useUserStore().user);
-  await useUserStore().signInWithGoogle();
-  console.log("fetchuserg2" + useUserStore().user);
-};
-
-const loginInWithGitHub = async () => {
-  try {
-    await useUserStore().signInWithGitHub();
-    redirect.push({ path: "/" });
-  } catch (error) {
-    errorMsg.value = `Error: ${error.message}`;
     setTimeout(() => {
       errorMsg.value = null;
     }, 5000);

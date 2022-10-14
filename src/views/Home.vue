@@ -89,9 +89,6 @@ async function showUnComplete() {
   );
 }
 
-// const tasksCompleted = tasksData._rawValue.filter(
-//   (task) => task.is_complete === true
-// );
 // declarando la función asíncrona que se encargará de borrar una tarea en supabase
 const deleteTaskFather = async (taskId) => {
   await taskStore.deleteTask(taskId);
@@ -132,10 +129,6 @@ function getTasksUnCompleted() {
     (task) => task.is_complete === false
   );
 }
-// mostrar los completados
-// const showCompleteTaskFather = async (is_complete) => {
-//   await taskStore.showComplete(is_complete);
-// };
 
 console.log(taskStore.fetchTasks());
 </script>

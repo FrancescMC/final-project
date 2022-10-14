@@ -22,19 +22,14 @@
 import { useUserStore } from "../stores/user";
 import { useRouter } from "vue-router";
 import { ref } from "vue";
+// variables to print the user name
 let userName = ref(useUserStore().user.email);
-// Router to push user once SignOut is activated and will push user to the SignIn page.
-const redirect = useRouter();
-
-// variable that we will use to save el useUserStore that allows us the usage of the store on a cleaner way inside this component
-
-const userStore = useUserStore();
-
-// variable para mostrar error
-const errorMessageContainer = ref(false);
-const errorMessage = ref("");
 const arr = userName.value.indexOf("@");
 const nameEmail = ref(userName.value.slice(0, arr));
+// Router to push user once SignOut is activated and will push user to the SignIn page.
+const redirect = useRouter();
+// variable that we will use to save el useUserStore that allows us the usage of the store on a cleaner way inside this component
+const userStore = useUserStore();
 // async function that calls the signOut method from the useUserStore and pushes the user back to the Auth view.
 async function signOut() {
   try {

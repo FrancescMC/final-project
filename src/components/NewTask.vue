@@ -39,19 +39,12 @@ import { ref } from "vue";
 const props = defineProps(["task"]);
 // define emit
 const emit = defineEmits(["createTaskChildren", "deleteAllTaskChildren"]);
-// borrar todas las tareas
-// const deleteAllTask = () => {
-//   emit("deleteAllTaskChildren", props.task.user_id);
-// };
 // variables for the parts that will be introduced by the user
 const taskTitle = ref("");
 const taskDescription = ref("");
 const errorBoolean = ref("");
-
 const emptyString = ref("");
-
 // function that we will call to introduce a new task
-
 const createTask = () => {
   if (taskTitle.value === "") {
     errorBoolean.value = true;

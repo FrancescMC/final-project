@@ -101,10 +101,9 @@
 import { ref } from "vue";
 import { inject } from "vue";
 import { useUserStore } from "../stores/user";
-const taskTitle = ref(props.task.title);
-const taskDescription = ref(props.task.description);
 // definimos props
 const props = defineProps(["task"]);
+// Toast alert
 const toast = inject("$toast");
 // defino los emits
 const emit = defineEmits([
@@ -114,7 +113,9 @@ const emit = defineEmits([
   "updateTaskChildren",
   "deleteAllTaskChildren",
 ]);
-// actualizar tareas
+const taskTitle = ref(props.task.title);
+const taskDescription = ref(props.task.description);
+// acciones sobre las tareas
 const updateTask = () => {
   console.log("usuario actual", useUserStore().user);
   toast("Saved!");
@@ -125,25 +126,15 @@ const updateTask = () => {
     taskDescription.value
   );
 };
-// borrar tareas
 const deleteTask = () => {
   emit("deleteTaskChildren", props.task.id);
 };
-// borrar todas las tareas
-
-// completar tareas
 const completeTask = () => {
   emit("completeTaskChildren", props.task.id, props.task.is_complete);
 };
 </script>
 
 <style>
-.card-plant-logo {
-  width: 57px;
-  position: absolute;
-  top: 5px;
-  left: 5px;
-}
 textarea {
   color: #124559;
   background-color: #aec3b0;
@@ -166,5 +157,11 @@ textarea::-webkit-scrollbar-thumb {
   border-radius: 5px;
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.4);
   background-color: #598392;
+}
+.card-plant-logo {
+  width: 57px;
+  position: absolute;
+  top: 5px;
+  left: 5px;
 }
 </style>
